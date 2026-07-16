@@ -1,0 +1,552 @@
+{
+  "generated_at": "2026-07-16T04:47:00.375592+00:00",
+  "formulas": [
+    {
+      "id": 1,
+      "name": "공식1 지표",
+      "description": "지표1_데이터.xlsx 로 계산하는 첫 번째 지표입니다.",
+      "unit": ""
+    },
+    {
+      "id": 2,
+      "name": "공식2 지표",
+      "description": "지표2_데이터.xlsx 로 계산하는 두 번째 지표입니다.",
+      "unit": ""
+    },
+    {
+      "id": 3,
+      "name": "공식3 지표",
+      "description": "지표3_데이터.xlsx 로 계산하는 세 번째 지표입니다.",
+      "unit": ""
+    },
+    {
+      "id": 4,
+      "name": "공식4 지표",
+      "description": "지표4_데이터.xlsx 로 계산하는 네 번째 지표입니다.",
+      "unit": ""
+    },
+    {
+      "id": 5,
+      "name": "공식5 지표",
+      "description": "지표5_데이터.xlsx 로 계산하는 다섯 번째 지표입니다.",
+      "unit": ""
+    },
+    {
+      "id": 6,
+      "name": "공식6 지표",
+      "description": "지표6_데이터.xlsx 로 계산하는 여섯 번째 지표입니다.",
+      "unit": ""
+    }
+  ],
+  "regions": [
+    {
+      "sido": "대전광역시",
+      "gu": "동구",
+      "indicators": [
+        {
+          "formula_id": 1,
+          "name": "공식1 지표",
+          "unit": "",
+          "source_file": "지표1_데이터.xlsx",
+          "value": 4533.99,
+          "detail": {
+            "사용한_행수": 9
+          },
+          "error": null
+        },
+        {
+          "formula_id": 2,
+          "name": "공식2 지표",
+          "unit": "",
+          "source_file": "지표2_데이터.xlsx",
+          "value": 275.1123,
+          "detail": {
+            "사용한_행수": 13
+          },
+          "error": null
+        },
+        {
+          "formula_id": 3,
+          "name": "공식3 지표",
+          "unit": "",
+          "source_file": "지표3_데이터.xlsx",
+          "value": 843.0,
+          "detail": {
+            "사용한_행수": 18
+          },
+          "error": null
+        },
+        {
+          "formula_id": 4,
+          "name": "공식4 지표",
+          "unit": "",
+          "source_file": "지표4_데이터.xlsx",
+          "value": 36.68,
+          "detail": {
+            "사용한_행수": 11
+          },
+          "error": null
+        },
+        {
+          "formula_id": 5,
+          "name": "공식5 지표",
+          "unit": "",
+          "source_file": "지표5_데이터.xlsx",
+          "value": 283.9,
+          "detail": {
+            "사용한_행수": 17
+          },
+          "error": null
+        },
+        {
+          "formula_id": 6,
+          "name": "공식6 지표",
+          "unit": "",
+          "source_file": "지표6_데이터.xlsx",
+          "value": 157.1821,
+          "detail": {
+            "사용한_행수": 11
+          },
+          "error": null
+        }
+      ]
+    },
+    {
+      "sido": "대전광역시",
+      "gu": "서구",
+      "indicators": [
+        {
+          "formula_id": 1,
+          "name": "공식1 지표",
+          "unit": "",
+          "source_file": "지표1_데이터.xlsx",
+          "value": 9497.61,
+          "detail": {
+            "사용한_행수": 16
+          },
+          "error": null
+        },
+        {
+          "formula_id": 2,
+          "name": "공식2 지표",
+          "unit": "",
+          "source_file": "지표2_데이터.xlsx",
+          "value": 338.5663,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 3,
+          "name": "공식3 지표",
+          "unit": "",
+          "source_file": "지표3_데이터.xlsx",
+          "value": 992.0,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 4,
+          "name": "공식4 지표",
+          "unit": "",
+          "source_file": "지표4_데이터.xlsx",
+          "value": 10.0,
+          "detail": {
+            "사용한_행수": 19
+          },
+          "error": null
+        },
+        {
+          "formula_id": 5,
+          "name": "공식5 지표",
+          "unit": "",
+          "source_file": "지표5_데이터.xlsx",
+          "value": 266.8475,
+          "detail": {
+            "사용한_행수": 14
+          },
+          "error": null
+        },
+        {
+          "formula_id": 6,
+          "name": "공식6 지표",
+          "unit": "",
+          "source_file": "지표6_데이터.xlsx",
+          "value": 164.3633,
+          "detail": {
+            "사용한_행수": 12
+          },
+          "error": null
+        }
+      ]
+    },
+    {
+      "sido": "대전광역시",
+      "gu": "유성구",
+      "indicators": [
+        {
+          "formula_id": 1,
+          "name": "공식1 지표",
+          "unit": "",
+          "source_file": "지표1_데이터.xlsx",
+          "value": 6244.95,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 2,
+          "name": "공식2 지표",
+          "unit": "",
+          "source_file": "지표2_데이터.xlsx",
+          "value": 297.9372,
+          "detail": {
+            "사용한_행수": 9
+          },
+          "error": null
+        },
+        {
+          "formula_id": 3,
+          "name": "공식3 지표",
+          "unit": "",
+          "source_file": "지표3_데이터.xlsx",
+          "value": 972.0,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 4,
+          "name": "공식4 지표",
+          "unit": "",
+          "source_file": "지표4_데이터.xlsx",
+          "value": 20.2,
+          "detail": {
+            "사용한_행수": 8
+          },
+          "error": null
+        },
+        {
+          "formula_id": 5,
+          "name": "공식5 지표",
+          "unit": "",
+          "source_file": "지표5_데이터.xlsx",
+          "value": 316.215,
+          "detail": {
+            "사용한_행수": 10
+          },
+          "error": null
+        },
+        {
+          "formula_id": 6,
+          "name": "공식6 지표",
+          "unit": "",
+          "source_file": "지표6_데이터.xlsx",
+          "value": 129.3741,
+          "detail": {
+            "사용한_행수": 14
+          },
+          "error": null
+        }
+      ]
+    },
+    {
+      "sido": "부산광역시",
+      "gu": "사하구",
+      "indicators": [
+        {
+          "formula_id": 1,
+          "name": "공식1 지표",
+          "unit": "",
+          "source_file": "지표1_데이터.xlsx",
+          "value": 13188.88,
+          "detail": {
+            "사용한_행수": 19
+          },
+          "error": null
+        },
+        {
+          "formula_id": 2,
+          "name": "공식2 지표",
+          "unit": "",
+          "source_file": "지표2_데이터.xlsx",
+          "value": 297.3815,
+          "detail": {
+            "사용한_행수": 10
+          },
+          "error": null
+        },
+        {
+          "formula_id": 3,
+          "name": "공식3 지표",
+          "unit": "",
+          "source_file": "지표3_데이터.xlsx",
+          "value": 928.0,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 4,
+          "name": "공식4 지표",
+          "unit": "",
+          "source_file": "지표4_데이터.xlsx",
+          "value": 10.0,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 5,
+          "name": "공식5 지표",
+          "unit": "",
+          "source_file": "지표5_데이터.xlsx",
+          "value": 273.91,
+          "detail": {
+            "사용한_행수": 11
+          },
+          "error": null
+        },
+        {
+          "formula_id": 6,
+          "name": "공식6 지표",
+          "unit": "",
+          "source_file": "지표6_데이터.xlsx",
+          "value": 129.4345,
+          "detail": {
+            "사용한_행수": 11
+          },
+          "error": null
+        }
+      ]
+    },
+    {
+      "sido": "부산광역시",
+      "gu": "해운대구",
+      "indicators": [
+        {
+          "formula_id": 1,
+          "name": "공식1 지표",
+          "unit": "",
+          "source_file": "지표1_데이터.xlsx",
+          "value": 5737.95,
+          "detail": {
+            "사용한_행수": 8
+          },
+          "error": null
+        },
+        {
+          "formula_id": 2,
+          "name": "공식2 지표",
+          "unit": "",
+          "source_file": "지표2_데이터.xlsx",
+          "value": 239.5869,
+          "detail": {
+            "사용한_행수": 13
+          },
+          "error": null
+        },
+        {
+          "formula_id": 3,
+          "name": "공식3 지표",
+          "unit": "",
+          "source_file": "지표3_데이터.xlsx",
+          "value": 955.0,
+          "detail": {
+            "사용한_행수": 11
+          },
+          "error": null
+        },
+        {
+          "formula_id": 4,
+          "name": "공식4 지표",
+          "unit": "",
+          "source_file": "지표4_데이터.xlsx",
+          "value": 22.54,
+          "detail": {
+            "사용한_행수": 10
+          },
+          "error": null
+        },
+        {
+          "formula_id": 5,
+          "name": "공식5 지표",
+          "unit": "",
+          "source_file": "지표5_데이터.xlsx",
+          "value": 349.2275,
+          "detail": {
+            "사용한_행수": 8
+          },
+          "error": null
+        },
+        {
+          "formula_id": 6,
+          "name": "공식6 지표",
+          "unit": "",
+          "source_file": "지표6_데이터.xlsx",
+          "value": 148.7467,
+          "detail": {
+            "사용한_행수": 18
+          },
+          "error": null
+        }
+      ]
+    },
+    {
+      "sido": "서울특별시",
+      "gu": "강남구",
+      "indicators": [
+        {
+          "formula_id": 1,
+          "name": "공식1 지표",
+          "unit": "",
+          "source_file": "지표1_데이터.xlsx",
+          "value": 7079.65,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 2,
+          "name": "공식2 지표",
+          "unit": "",
+          "source_file": "지표2_데이터.xlsx",
+          "value": 276.1403,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 3,
+          "name": "공식3 지표",
+          "unit": "",
+          "source_file": "지표3_데이터.xlsx",
+          "value": 853.0,
+          "detail": {
+            "사용한_행수": 10
+          },
+          "error": null
+        },
+        {
+          "formula_id": 4,
+          "name": "공식4 지표",
+          "unit": "",
+          "source_file": "지표4_데이터.xlsx",
+          "value": 14.0,
+          "detail": {
+            "사용한_행수": 15
+          },
+          "error": null
+        },
+        {
+          "formula_id": 5,
+          "name": "공식5 지표",
+          "unit": "",
+          "source_file": "지표5_데이터.xlsx",
+          "value": 234.2925,
+          "detail": {
+            "사용한_행수": 8
+          },
+          "error": null
+        },
+        {
+          "formula_id": 6,
+          "name": "공식6 지표",
+          "unit": "",
+          "source_file": "지표6_데이터.xlsx",
+          "value": 168.9202,
+          "detail": {
+            "사용한_행수": 8
+          },
+          "error": null
+        }
+      ]
+    },
+    {
+      "sido": "서울특별시",
+      "gu": "종로구",
+      "indicators": [
+        {
+          "formula_id": 1,
+          "name": "공식1 지표",
+          "unit": "",
+          "source_file": "지표1_데이터.xlsx",
+          "value": 7596.95,
+          "detail": {
+            "사용한_행수": 14
+          },
+          "error": null
+        },
+        {
+          "formula_id": 2,
+          "name": "공식2 지표",
+          "unit": "",
+          "source_file": "지표2_데이터.xlsx",
+          "value": 262.2526,
+          "detail": {
+            "사용한_행수": 19
+          },
+          "error": null
+        },
+        {
+          "formula_id": 3,
+          "name": "공식3 지표",
+          "unit": "",
+          "source_file": "지표3_데이터.xlsx",
+          "value": 940.0,
+          "detail": {
+            "사용한_행수": 18
+          },
+          "error": null
+        },
+        {
+          "formula_id": 4,
+          "name": "공식4 지표",
+          "unit": "",
+          "source_file": "지표4_데이터.xlsx",
+          "value": 40.45,
+          "detail": {
+            "사용한_행수": 10
+          },
+          "error": null
+        },
+        {
+          "formula_id": 5,
+          "name": "공식5 지표",
+          "unit": "",
+          "source_file": "지표5_데이터.xlsx",
+          "value": 327.4275,
+          "detail": {
+            "사용한_행수": 8
+          },
+          "error": null
+        },
+        {
+          "formula_id": 6,
+          "name": "공식6 지표",
+          "unit": "",
+          "source_file": "지표6_데이터.xlsx",
+          "value": 141.0655,
+          "detail": {
+            "사용한_행수": 16
+          },
+          "error": null
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 42,
+    "ok": 42,
+    "failed": 0
+  }
+}
