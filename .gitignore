@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# 엑셀 임시파일
+~$*.xlsx
+
+# OS
+.DS_Store
+
+# 빌드 산출물은 커밋해도 됩니다(웹이 바로 읽음). 재생성 원치 않으면 아래 주석 해제.
+# app/data/indicators.json
