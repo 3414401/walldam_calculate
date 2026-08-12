@@ -441,6 +441,32 @@ main {
   text-align: right;
 }
 
+.interpret-card {
+  margin-top: 1.15rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #fff, rgba(79, 154, 146, 0.08));
+}
+
+.interpret-card h4 {
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--moss-deep);
+}
+
+.interpret-card p {
+  margin: 0 0 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.interpret-card p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 820px) {
   .dual-sheet-grid {
     grid-template-columns: 1fr;
