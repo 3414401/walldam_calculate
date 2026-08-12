@@ -163,6 +163,19 @@ function filteredSchools() {
   });
 }
 
+function renderSchoolSheetRows(list) {
+  return list
+    .map(
+      (s) => `
+      <tr>
+        <td>${escapeHtml(s.district || "—")}</td>
+        <td>${escapeHtml(s.name)}</td>
+        <td class="num">${fmt(s.H_m, 6)}</td>
+      </tr>`
+    )
+    .join("");
+}
+
 function renderSchoolRank() {
   const content = $("#school-rank-content");
   const body = $("#school-rank-body");
@@ -174,8 +187,9 @@ function renderSchoolRank() {
   }
 
   content.hidden = false;
+  filters.hidden = true;
+
   if (schoolRankCity === "daegu") {
-    filters.hidden = true;
     body.innerHTML = `
       <div class="empty-state">
         <p>대구광역시 학교별 동질성 순위는 추후 채워 넣을 예정입니다.</p>
@@ -183,44 +197,52 @@ function renderSchoolRank() {
     return;
   }
 
-  filters.hidden = false;
-  initDistrictFilter();
-  const rows = filteredSchools()
+  const top40 = schools
     .slice()
-    .sort((a, b) => a.H_m - b.H_m);
+    .sort((a, b) => b.H_m - a.H_m)
+    .slice(0, 40);
+  const large = top40
+    .filter((s) => (s.students ?? 0) >= 400)
+    .sort((a, b) => b.H_m - a.H_m);
+  const small = top40
+    .filter((s) => (s.students ?? 0) < 400)
+    .sort((a, b) => b.H_m - a.H_m);
+
   body.innerHTML = `
-    <div class="table-wrap">
-      <table class="data-table" id="school-rank-table">
-        <thead>
-          <tr>
-            <th>순위</th>
-            <th>학교명</th>
-            <th>학교급</th>
-            <th>구</th>
-            <th>H<sub>m</sub></th>
-            <th>학생 수</th>
-            <th>과밀</th>
-            <th>고립</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows
-            .map(
-              (s, i) => `
-            <tr>
-              <td class="rank">${i + 1}</td>
-              <td>${escapeHtml(s.name)}</td>
-              <td>${escapeHtml(s.level || "—")}</td>
-              <td>${escapeHtml(s.district || "—")}</td>
-              <td class="num">${fmt(s.H_m, 3)}</td>
-              <td class="num">${s.students == null ? "—" : Math.round(s.students).toLocaleString("ko-KR")}</td>
-              <td class="num">${fmt(s.overcrowding, 4)}</td>
-              <td class="num">${fmt(s.isolation, 4)}</td>
-            </tr>`
-            )
-            .join("")}
-        </tbody>
-      </table>
+    <div class="dual-sheet">
+      <h3 class="dual-sheet-title">대전광역시의 H<sub>m</sub> 지수 상위 40개 학교 목록</h3>
+      <div class="dual-sheet-grid">
+        <section class="sheet-pane">
+          <h4 class="sheet-heading">▼학생수가 400명 이상인 학교</h4>
+          <div class="table-wrap sheet-table">
+            <table class="data-table compact-table">
+              <thead>
+                <tr>
+                  <th>구</th>
+                  <th>학교명</th>
+                  <th>H<sub>m</sub></th>
+                </tr>
+              </thead>
+              <tbody>${renderSchoolSheetRows(large)}</tbody>
+            </table>
+          </div>
+        </section>
+        <section class="sheet-pane">
+          <h4 class="sheet-heading">▼학생수가 400명 미만인 학교</h4>
+          <div class="table-wrap sheet-table">
+            <table class="data-table compact-table">
+              <thead>
+                <tr>
+                  <th>구</th>
+                  <th>학교명</th>
+                  <th>H<sub>m</sub></th>
+                </tr>
+              </thead>
+              <tbody>${renderSchoolSheetRows(small)}</tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </div>`;
 }
 
