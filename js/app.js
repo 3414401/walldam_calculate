@@ -344,6 +344,19 @@ function initMetricPills() {
   metricPillsReady = true;
 }
 
+function renderMetricExplain() {
+  const box = $("#metric-explain");
+  if (!box) return;
+  if (metricRankCity !== "daejeon") {
+    box.hidden = true;
+    box.innerHTML = "";
+    return;
+  }
+  const metric = METRICS.find((m) => m.key === activeMetric);
+  box.hidden = false;
+  box.innerHTML = `<h4>${metric.title}</h4>${metric.explain}`;
+}
+
 function renderMetricRank() {
   const content = $("#metric-rank-content");
   const body = $("#metric-rank-body");
@@ -351,12 +364,14 @@ function renderMetricRank() {
   if (!metricRankCity) {
     content.hidden = true;
     body.innerHTML = "";
+    renderMetricExplain();
     return;
   }
 
   content.hidden = false;
   if (metricRankCity === "daegu") {
     pills.hidden = true;
+    renderMetricExplain();
     body.innerHTML = `
       <div class="empty-state">
         <p>대구광역시 지표별 순위는 추후 채워 넣을 예정입니다.</p>
@@ -366,6 +381,7 @@ function renderMetricRank() {
 
   pills.hidden = false;
   initMetricPills();
+  renderMetricExplain();
   const metric = METRICS.find((m) => m.key === activeMetric);
   const rows = schools
     .filter((s) => s[activeMetric] != null && !Number.isNaN(s[activeMetric]))
