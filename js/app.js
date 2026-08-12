@@ -377,20 +377,20 @@ function renderSchoolRank() {
 
   const schools = citySchools(schoolRankCity);
   const cityName = CITY_LABEL[schoolRankCity] || "";
-  const top40 = schools
-    .slice()
+  // 학생 수 기준으로 먼저 나눈 뒤, 각 그룹에서 H_m 상위 학교를 표시
+  const large = schools
+    .filter((s) => (s.students ?? 0) >= 400)
     .sort((a, b) => b.H_m - a.H_m)
     .slice(0, 40);
-  const large = top40
-    .filter((s) => (s.students ?? 0) >= 400)
-    .sort((a, b) => b.H_m - a.H_m);
-  const small = top40
+  const small = schools
     .filter((s) => (s.students ?? 0) < 400)
-    .sort((a, b) => b.H_m - a.H_m);
+    .sort((a, b) => b.H_m - a.H_m)
+    .slice(0, 40);
 
   body.innerHTML = `
     <div class="dual-sheet">
-      <h3 class="dual-sheet-title">${cityName}의 H<sub>m</sub> 지수 상위 40개 학교 목록</h3>
+      <h3 class="dual-sheet-title">${cityName}의 H<sub>m</sub> 지수 상위 학교 목록</h3>
+      <p class="dual-sheet-note">학생 수 400명 이상 / 미만 그룹에서 각각 H<sub>m</sub> 상위 40개교</p>
       <div class="dual-sheet-grid">
         <section class="sheet-pane">
           <h4 class="sheet-heading">▼학생수가 400명 이상인 학교</h4>
