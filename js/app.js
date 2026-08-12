@@ -672,6 +672,61 @@ setupSubtabs();
 setupFilters();
 setupRankCityButtons();
 setupCities();
+setupHmSliders();
 loadData().catch((err) => {
   console.error(err);
 });
+
+function setupHmSliders() {
+  const wrap = $("#hm-sliders");
+  if (!wrap) return;
+
+  const order = ["I_SCU", "H_ppc", "H_job", "H_path", "R_net"];
+  // pentagon axes angles: top, top-right, bottom-right, bottom-left, top-left
+  const angles = [-Math.PI / 2, -Math.PI / 2 + (2 * Math.PI) / 5, -Math.PI / 2 + (4 * Math.PI) / 5, -Math.PI / 2 + (6 * Math.PI) / 5, -Math.PI / 2 + (8 * Math.PI) / 5];
+  const maxR = 120;
+
+  function readValues() {
+    return order.map((key) => {
+      const input = wrap.querySelector(`input[data-metric="${key}"]`);
+      return Number(input.value) / 100;
+    });
+  }
+
+  function update() {
+    const values = readValues();
+    values.forEach((v, i) => {
+      const key = order[i];
+      const label = wrap.querySelector(`[data-value-for="${key}"]`);
+      if (label) label.textContent = v.toFixed(2);
+    });
+
+    const points = values.map((v, i) => {
+      const r = Math.max(0.08, v) * maxR;
+      const x = Math.cos(angles[i]) * r;
+      const y = Math.sin(angles[i]) * r;
+      return `${x.toFixed(2)},${y.toFixed(2)}`;
+    });
+
+    const shape = $("#radar-shape");
+    const dots = $("#radar-dots");
+    if (shape) shape.setAttribute("points", points.join(" "));
+    if (dots) {
+      dots.innerHTML = points
+        .map((p) => {
+          const [x, y] = p.split(",");
+          return `<circle cx="${x}" cy="${y}" r="4" fill="#184f4c"/>`;
+        })
+        .join("");
+    }
+
+    const avg = values.reduce((a, b) => a + b, 0) / values.length;
+    const summary = $("#hm-summary-value");
+    if (summary) summary.textContent = `Hₘ ${avg.toFixed(2)}`;
+  }
+
+  wrap.querySelectorAll('input[type="range"]').forEach((input) => {
+    input.addEventListener("input", update);
+  });
+  update();
+}
