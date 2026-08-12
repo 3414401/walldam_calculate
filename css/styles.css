@@ -235,20 +235,33 @@ main {
 
 .image-slot {
   min-height: min(52vh, 420px);
-  border: 1.5px dashed rgba(61, 107, 90, 0.35);
+  border: 1.5px solid rgba(61, 107, 90, 0.22);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(255, 252, 247, 0.5), rgba(226, 216, 200, 0.35)),
-    repeating-linear-gradient(
-      -12deg,
-      transparent,
-      transparent 12px,
-      rgba(61, 107, 90, 0.04) 12px,
-      rgba(61, 107, 90, 0.04) 13px
-    );
+    linear-gradient(160deg, rgba(255, 252, 247, 0.92), rgba(226, 238, 236, 0.75));
   display: grid;
   place-items: center;
   margin-bottom: 1.25rem;
+  padding: 1rem 0.75rem 0.85rem;
+  overflow: hidden;
+}
+
+.hm-infographic {
+  margin: 0;
+  width: min(100%, 720px);
+}
+
+.hm-infographic svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.infographic-caption {
+  margin: 0.35rem 0 0;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
 }
 
 .placeholder-label {
