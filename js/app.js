@@ -104,6 +104,10 @@ const EXPLAIN = {
 let schools = [];
 let activeMetric = "H_m";
 let activeCity = null;
+let schoolRankCity = null;
+let metricRankCity = null;
+let districtFilterReady = false;
+let metricPillsReady = false;
 
 function fmt(v, digits = 3) {
   if (v == null || Number.isNaN(v)) return "—";
@@ -118,20 +122,25 @@ function $$(sel, root = document) {
   return [...root.querySelectorAll(sel)];
 }
 
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
 async function loadData() {
   const res = await fetch("data/daejeon.json");
   if (!res.ok) throw new Error("데이터 로드 실패");
   schools = await res.json();
-  initDistrictFilter();
-  renderSchoolRank();
-  initMetricPills();
-  renderMetricRank();
 }
 
 function initDistrictFilter() {
+  if (districtFilterReady) return;
   const select = $("#filter-district");
-  const districts = [...new Set(schools.map((s) => s.district).filter(Boolean))].sort(
-    (a, b) => a.localeCompare(b, "ko")
+  const districts = [...new Set(schools.map((s) => s.district).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b, "ko")
   );
   for (const d of districts) {
     const opt = document.createElement("option");
@@ -139,6 +148,7 @@ function initDistrictFilter() {
     opt.textContent = d;
     select.appendChild(opt);
   }
+  districtFilterReady = true;
 }
 
 function filteredSchools() {
@@ -154,28 +164,68 @@ function filteredSchools() {
 }
 
 function renderSchoolRank() {
+  const content = $("#school-rank-content");
+  const body = $("#school-rank-body");
+  const filters = content.querySelector(".filters");
+  if (!schoolRankCity) {
+    content.hidden = true;
+    body.innerHTML = "";
+    return;
+  }
+
+  content.hidden = false;
+  if (schoolRankCity === "daegu") {
+    filters.hidden = true;
+    body.innerHTML = `
+      <div class="empty-state">
+        <p>대구광역시 학교별 동질성 순위는 추후 채워 넣을 예정입니다.</p>
+      </div>`;
+    return;
+  }
+
+  filters.hidden = false;
+  initDistrictFilter();
   const rows = filteredSchools()
     .slice()
     .sort((a, b) => a.H_m - b.H_m);
-  const tbody = $("#school-rank-table tbody");
-  tbody.innerHTML = rows
-    .map(
-      (s, i) => `
-      <tr>
-        <td class="rank">${i + 1}</td>
-        <td>${escapeHtml(s.name)}</td>
-        <td>${escapeHtml(s.level || "—")}</td>
-        <td>${escapeHtml(s.district || "—")}</td>
-        <td class="num">${fmt(s.H_m, 3)}</td>
-        <td class="num">${s.students == null ? "—" : Math.round(s.students).toLocaleString("ko-KR")}</td>
-        <td class="num">${fmt(s.overcrowding, 4)}</td>
-        <td class="num">${fmt(s.isolation, 4)}</td>
-      </tr>`
-    )
-    .join("");
+  body.innerHTML = `
+    <div class="table-wrap">
+      <table class="data-table" id="school-rank-table">
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>학교명</th>
+            <th>학교급</th>
+            <th>구</th>
+            <th>H<sub>m</sub></th>
+            <th>학생 수</th>
+            <th>과밀</th>
+            <th>고립</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows
+            .map(
+              (s, i) => `
+            <tr>
+              <td class="rank">${i + 1}</td>
+              <td>${escapeHtml(s.name)}</td>
+              <td>${escapeHtml(s.level || "—")}</td>
+              <td>${escapeHtml(s.district || "—")}</td>
+              <td class="num">${fmt(s.H_m, 3)}</td>
+              <td class="num">${s.students == null ? "—" : Math.round(s.students).toLocaleString("ko-KR")}</td>
+              <td class="num">${fmt(s.overcrowding, 4)}</td>
+              <td class="num">${fmt(s.isolation, 4)}</td>
+            </tr>`
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>`;
 }
 
 function initMetricPills() {
+  if (metricPillsReady) return;
   const wrap = $("#metric-pills");
   wrap.innerHTML = METRICS.map(
     (m) =>
@@ -188,28 +238,64 @@ function initMetricPills() {
     $$(".metric-pill", wrap).forEach((b) => b.classList.toggle("is-active", b === btn));
     renderMetricRank();
   });
+  metricPillsReady = true;
 }
 
 function renderMetricRank() {
+  const content = $("#metric-rank-content");
+  const body = $("#metric-rank-body");
+  const pills = $("#metric-pills");
+  if (!metricRankCity) {
+    content.hidden = true;
+    body.innerHTML = "";
+    return;
+  }
+
+  content.hidden = false;
+  if (metricRankCity === "daegu") {
+    pills.hidden = true;
+    body.innerHTML = `
+      <div class="empty-state">
+        <p>대구광역시 지표별 순위는 추후 채워 넣을 예정입니다.</p>
+      </div>`;
+    return;
+  }
+
+  pills.hidden = false;
+  initMetricPills();
   const metric = METRICS.find((m) => m.key === activeMetric);
-  $("#metric-col-header").textContent = metric.label;
   const rows = schools
     .filter((s) => s[activeMetric] != null && !Number.isNaN(s[activeMetric]))
     .slice()
-    .sort((a, b) => a[activeMetric] - b[activeMetric]);
-  const tbody = $("#metric-rank-table tbody");
-  tbody.innerHTML = rows
-    .map(
-      (s, i) => `
-      <tr>
-        <td class="rank">${i + 1}</td>
-        <td>${escapeHtml(s.name)}</td>
-        <td>${escapeHtml(s.level || "—")}</td>
-        <td>${escapeHtml(s.district || "—")}</td>
-        <td class="num">${metric.format(s[activeMetric])}</td>
-      </tr>`
-    )
-    .join("");
+    .sort((a, b) => b[activeMetric] - a[activeMetric]);
+  body.innerHTML = `
+    <div class="table-wrap">
+      <table class="data-table" id="metric-rank-table">
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>학교명</th>
+            <th>학교급</th>
+            <th>구</th>
+            <th id="metric-col-header">${metric.label}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows
+            .map(
+              (s, i) => `
+            <tr>
+              <td class="rank">${i + 1}</td>
+              <td>${escapeHtml(s.name)}</td>
+              <td>${escapeHtml(s.level || "—")}</td>
+              <td>${escapeHtml(s.district || "—")}</td>
+              <td class="num">${metric.format(s[activeMetric])}</td>
+            </tr>`
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>`;
 }
 
 function setupMainNav() {
@@ -246,15 +332,34 @@ function setupSubtabs() {
 
 function setupFilters() {
   ["filter-level", "filter-district", "school-search"].forEach((id) => {
-    $(`#${id}`).addEventListener("input", renderSchoolRank);
+    $(`#${id}`).addEventListener("input", () => {
+      if (schoolRankCity === "daejeon") renderSchoolRank();
+    });
+  });
+}
+
+function setupRankCityButtons() {
+  $$("[data-rank-scope]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const scope = btn.dataset.rankScope;
+      const city = btn.dataset.rankCity;
+      $$(`[data-rank-scope="${scope}"]`).forEach((b) => b.classList.toggle("is-active", b === btn));
+      if (scope === "school") {
+        schoolRankCity = city;
+        renderSchoolRank();
+      } else {
+        metricRankCity = city;
+        renderMetricRank();
+      }
+    });
   });
 }
 
 function setupCities() {
-  $$(".city-btn").forEach((btn) => {
+  $$("#section-indicators .city-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       activeCity = btn.dataset.city;
-      $$(".city-btn").forEach((b) => b.classList.toggle("is-active", b === btn));
+      $$("#section-indicators .city-btn").forEach((b) => b.classList.toggle("is-active", b === btn));
       showCity(activeCity);
     });
   });
@@ -341,20 +446,11 @@ function showCity(city) {
   }
 }
 
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-}
-
 setupMainNav();
 setupSubtabs();
 setupFilters();
+setupRankCityButtons();
 setupCities();
 loadData().catch((err) => {
   console.error(err);
-  $("#school-rank-table tbody").innerHTML =
-    '<tr><td colspan="8">데이터를 불러오지 못했습니다. 로컬 서버로 열어 주세요.</td></tr>';
 });
