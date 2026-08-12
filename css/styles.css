@@ -309,12 +309,39 @@ main {
   color: var(--ink);
 }
 
+.project-proof-slot {
+  width: 100%;
+  padding: 1.15rem 1.25rem 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.project-proof-image {
+  display: block;
+  width: 100%;
+  max-height: min(70vh, 640px);
+  object-fit: contain;
+  border-radius: 12px;
+  background: #0f172a;
+}
+
+.project-proof-caption {
+  margin: 0.9rem 0 0;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .prose-card {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: clamp(1.25rem, 3vw, 2rem);
   box-shadow: var(--shadow);
+  margin-bottom: 1.25rem;
 }
 
 .prose-card h2 {
