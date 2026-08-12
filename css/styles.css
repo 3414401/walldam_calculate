@@ -272,6 +272,19 @@ main {
   font-size: 0.92rem;
 }
 
+.rank-city-content {
+  margin-top: 0.25rem;
+}
+
+.rank-city-content[hidden] {
+  display: none !important;
+}
+
+.rank-city-content .filters,
+.rank-city-content .metric-pills {
+  margin-bottom: 1rem;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;

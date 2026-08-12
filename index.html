@@ -67,7 +67,13 @@
         <div class="subpanel" id="sub-school-rank" role="tabpanel" hidden>
           <div class="panel-toolbar">
             <h2>학교별 동질성 지표 순위</h2>
-            <p class="hint">H<sub>m</sub> 값 오름차순 (낮을수록 다양성 ↑ / 높을수록 동질성 ↑)</p>
+            <p class="hint">지역을 선택한 뒤 H<sub>m</sub> 오름차순 순위를 확인하세요.</p>
+          </div>
+          <div class="city-buttons" role="group" aria-label="학교별 순위 지역 선택">
+            <button class="city-btn" data-rank-city="daejeon" data-rank-scope="school" type="button">대전광역시</button>
+            <button class="city-btn" data-rank-city="daegu" data-rank-scope="school" type="button">대구광역시</button>
+          </div>
+          <div id="school-rank-content" class="rank-city-content" hidden>
             <div class="filters">
               <label>
                 학교급
@@ -89,23 +95,7 @@
                 <input type="search" id="school-search" placeholder="학교명" autocomplete="off" />
               </label>
             </div>
-          </div>
-          <div class="table-wrap">
-            <table class="data-table" id="school-rank-table">
-              <thead>
-                <tr>
-                  <th>순위</th>
-                  <th>학교명</th>
-                  <th>학교급</th>
-                  <th>구</th>
-                  <th>H<sub>m</sub></th>
-                  <th>학생 수</th>
-                  <th>과밀</th>
-                  <th>고립</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+            <div id="school-rank-body"></div>
           </div>
         </div>
 
@@ -113,22 +103,15 @@
         <div class="subpanel" id="sub-metric-rank" role="tabpanel" hidden>
           <div class="panel-toolbar">
             <h2>지표별 순위</h2>
-            <p class="hint">선택한 지표 값 오름차순</p>
-            <div class="metric-pills" id="metric-pills" role="group" aria-label="지표 선택"></div>
+            <p class="hint">지역을 선택한 뒤, 지표 값 내림차순(높은 순)으로 확인하세요.</p>
           </div>
-          <div class="table-wrap">
-            <table class="data-table" id="metric-rank-table">
-              <thead>
-                <tr>
-                  <th>순위</th>
-                  <th>학교명</th>
-                  <th>학교급</th>
-                  <th>구</th>
-                  <th id="metric-col-header">지표</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+          <div class="city-buttons" role="group" aria-label="지표별 순위 지역 선택">
+            <button class="city-btn" data-rank-city="daejeon" data-rank-scope="metric" type="button">대전광역시</button>
+            <button class="city-btn" data-rank-city="daegu" data-rank-scope="metric" type="button">대구광역시</button>
+          </div>
+          <div id="metric-rank-content" class="rank-city-content" hidden>
+            <div class="metric-pills" id="metric-pills" role="group" aria-label="지표 선택"></div>
+            <div id="metric-rank-body"></div>
           </div>
         </div>
       </div>
