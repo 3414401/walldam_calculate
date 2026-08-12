@@ -145,9 +145,9 @@ main {
 
 .hero-brand {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(3.4rem, 10vw, 6.2rem);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--moss-deep);
@@ -283,6 +283,38 @@ main {
 .rank-city-content .filters,
 .rank-city-content .metric-pills {
   margin-bottom: 1rem;
+}
+
+.metric-explain {
+  margin: 0 0 1rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #fff, rgba(79, 154, 146, 0.08));
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.metric-explain h4 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--moss-deep);
+}
+
+.metric-explain p {
+  margin: 0 0 0.45rem;
+}
+
+.metric-explain p:last-child {
+  margin-bottom: 0;
+}
+
+.metric-explain .data-note {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  opacity: 0.92;
 }
 
 .dual-sheet {

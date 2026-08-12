@@ -1,13 +1,94 @@
 const METRICS = [
-  { key: "H_m", label: "Hₘ 종합", format: (v) => fmt(v, 3) },
-  { key: "I_SCU", label: "I_SCU 사회·문화", format: (v) => fmt(v, 2) },
-  { key: "H_ppc", label: "H_ppc 소비", format: (v) => fmt(v, 3) },
-  { key: "H_job", label: "H_job 진로", format: (v) => fmt(v, 4) },
-  { key: "H_path", label: "H_path 진학", format: (v) => fmt(v, 4) },
-  { key: "R_net", label: "R_net 순전입", format: (v) => fmt(v, 4) },
-  { key: "overcrowding", label: "과밀지수", format: (v) => fmt(v, 4) },
-  { key: "isolation", label: "고립지수", format: (v) => fmt(v, 4) },
-  { key: "students", label: "학생 수", format: (v) => (v == null ? "—" : Math.round(v).toLocaleString("ko-KR")) },
+  {
+    key: "H_m",
+    label: "Hₘ 종합",
+    format: (v) => fmt(v, 3),
+    title: "Hₘ 다차원 동질성 지수 (Multidimensional Homogeneity)",
+    explain: `
+      <p>사회·문화·교육 공공데이터를 전처리·융합하여 교육 환경의 획일성 정도를 산출하는 월담 자체 지표입니다.</p>
+      <p>값이 클수록(1에 가까워지거나 그 이상일수록) 집단 구성원(I<sub>SCU</sub>), 소비 방식(H<sub>ppc</sub>), 진로 노출(H<sub>job</sub>), 공부 목표(H<sub>path</sub>)가 비슷하여, 과밀되거나 고립된 극단적 동질 집단에 가까울 가능성이 높습니다.</p>
+    `,
+  },
+  {
+    key: "I_SCU",
+    label: "I_SCU 사회·문화",
+    format: (v) => fmt(v, 2),
+    title: "I_SCU 사회·문화 획일성 지수 (Index of Socio-Cultural Uniformity)",
+    explain: `
+      <p>기초생활수급자, 다문화 학생, 일반 학교 내 특수교육 대상자 비율 데이터를 통해 구성원의 다양성 결핍 상태를 계산한다.</p>
+      <p class="data-note">활용 공공데이터: 특수교육 학급 및 학생 현황 일반학교, EDSS 제공. 공시공통사항, 교육부 제공.</p>
+    `,
+  },
+  {
+    key: "H_ppc",
+    label: "H_ppc 소비",
+    format: (v) => fmt(v, 3),
+    title: "H_ppc 소비 성향 획일성 지수 (HHI of pure purpose-driven consumption)",
+    explain: `
+      <p>생존을 위한 필수 소비(식비 등)를 제외한 특정 목적성 결제액을 추출한 뒤, 경제학의 시장 독과점 측정 지표인 HHI(허쉬만-허핀달 지수)를 적용해 지역 내 소비 문화의 쏠림 현상을 수치화했다. 나아가 이 '소비 획일성 지수'에 인구 이동량인 '순전입률'을 곱해 최종 과밀 지수를 산출했다. 이를 통해 단순한 주거지 이동을 필터링하고, 해당 지역에 굳어진 특정 문화를 향유하기 위해 집중적으로 빨려 들어오는 '목적성 인구 유입'만을 정밀하게 추출하였다.</p>
+      <p class="data-note">활용 공공데이터: 지역사랑상품권 가맹점 업종별 결제정보, 한국조폐공사 제공.</p>
+    `,
+  },
+  {
+    key: "H_job",
+    label: "H_job 진로",
+    format: (v) => fmt(v, 4),
+    title: "H_job 진로 노출 획일성 지수 (HHI of Job Exposure)",
+    explain: `
+      <p>전국 시군구 직업군 비율 데이터를 기반으로, 학생이 무의식적으로 노출되는 지역사회의 소득 창출 방식과 문화 자본의 쏠림을 측정한다.</p>
+      <p class="data-note">활용 공공데이터: 전국 시군구 단위 직업군별 비율, 문화빅데이터플랫폼 제공.</p>
+    `,
+  },
+  {
+    key: "H_path",
+    label: "H_path 진학",
+    format: (v) => fmt(v, 4),
+    title: "H_path 진학 획일성 지수 (HHI of Educational Paths)",
+    explain: `
+      <p>초중등 진학률 현황 데이터를 활용하여 졸업생들이 특정 학교 유형으로만 몰리는 진학 쏠림 정도를 측정한다. 마지막에 Min-Max 스케일링으로 보정하였다.</p>
+      <p class="data-note">활용 공공데이터: 유초중등학생현황[교육통계][EDSS], 교육부 제공.</p>
+    `,
+  },
+  {
+    key: "R_net",
+    label: "R_net 순전입",
+    format: (v) => fmt(v, 4),
+    title: "R_net 집단 쏠림 지수 (Net transfer rate)",
+    explain: `
+      <p>출입 학생 수 데이터를 분석하여 기존 문화를 향유하러 들어오는 목적성 인구 유입(순전입률)을 산출한다.</p>
+      <p class="data-note">활용 공공데이터: 전·출입 및 학업중단 학생 수, 학교알리미 제공. 학교학구도연계정보, 한국교육시설안전원 제공.</p>
+    `,
+  },
+  {
+    key: "overcrowding",
+    label: "과밀지수",
+    format: (v) => fmt(v, 4),
+    title: "과밀지수",
+    explain: `
+      <p>목적성 인구 유입과 문화 소비 쏠림의 시너지 효과를 계산하여 대형 학군의 '과밀 지수'를 구하고, 수학적 동기화 계수로 보정해 최종 지수에 반영한다.</p>
+      <p>고립 지수와 과밀 지수는 원점수 스케일이 달라, 차원 동기화 계수 α를 곱해 최대 출력치가 비슷하도록 보정한다. 또한 단순 전출입 노이즈가 과밀 지표를 왜곡하지 않도록 max 함수를 임계값 필터로 적용해 '학군지 목적의 인구 유입'만을 추출한다.</p>
+    `,
+  },
+  {
+    key: "isolation",
+    label: "고립지수",
+    format: (v) => fmt(v, 4),
+    title: "고립지수",
+    explain: `
+      <p>개별 학교 학생 수 데이터를 연동하여 소수 학급 환경이 유발하는 인프라 소외와 '관계망의 단절'을 '고립 지수'로 계산한다.</p>
+      <p>외부 인구 유입이 적고 전교생 수가 시 평균보다 현저히 적은 학교일수록 고립 지수가 커지며, 폐쇄적 관계망 속에서 새로운 문화적 자극과 정보 교류가 제한되는 상태를 나타낸다.</p>
+    `,
+  },
+  {
+    key: "students",
+    label: "학생 수",
+    format: (v) => (v == null ? "—" : Math.round(v).toLocaleString("ko-KR")),
+    title: "S 해당 학교의 학생 수",
+    explain: `
+      <p>해당 학교의 학생 수(S)입니다. 시 평균 학생 수와 비교해 고립·과밀 지수를 계산하는 데 사용됩니다.</p>
+      <p class="data-note">활용 공공데이터: 전·출입 및 학업중단 학생 수, 학교알리미 제공.</p>
+    `,
+  },
 ];
 
 const EXPLAIN = {
@@ -263,6 +344,19 @@ function initMetricPills() {
   metricPillsReady = true;
 }
 
+function renderMetricExplain() {
+  const box = $("#metric-explain");
+  if (!box) return;
+  if (metricRankCity !== "daejeon") {
+    box.hidden = true;
+    box.innerHTML = "";
+    return;
+  }
+  const metric = METRICS.find((m) => m.key === activeMetric);
+  box.hidden = false;
+  box.innerHTML = `<h4>${metric.title}</h4>${metric.explain}`;
+}
+
 function renderMetricRank() {
   const content = $("#metric-rank-content");
   const body = $("#metric-rank-body");
@@ -270,12 +364,14 @@ function renderMetricRank() {
   if (!metricRankCity) {
     content.hidden = true;
     body.innerHTML = "";
+    renderMetricExplain();
     return;
   }
 
   content.hidden = false;
   if (metricRankCity === "daegu") {
     pills.hidden = true;
+    renderMetricExplain();
     body.innerHTML = `
       <div class="empty-state">
         <p>대구광역시 지표별 순위는 추후 채워 넣을 예정입니다.</p>
@@ -285,6 +381,7 @@ function renderMetricRank() {
 
   pills.hidden = false;
   initMetricPills();
+  renderMetricExplain();
   const metric = METRICS.find((m) => m.key === activeMetric);
   const rows = schools
     .filter((s) => s[activeMetric] != null && !Number.isNaN(s[activeMetric]))
