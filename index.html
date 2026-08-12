@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260812i" />
+  <link rel="stylesheet" href="css/styles.css?v=20260812j" />
 </head>
 <body>
   <div class="bg-atmosphere" aria-hidden="true"></div>
@@ -63,7 +63,85 @@
             </p>
           </article>
           <div class="image-slot" id="about-image-slot">
-            <p class="placeholder-label">이미지를 여기에 넣을 예정입니다</p>
+            <figure class="hm-infographic" aria-label="다차원 동질성 지수 구성 인포그래픽">
+              <svg viewBox="0 0 720 420" role="img" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="radarFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2f6f6a" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.22"/>
+                  </linearGradient>
+                  <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#184f4c"/>
+                    <stop offset="100%" stop-color="#4f9a92"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- left: radar / pentagon -->
+                <g transform="translate(210,210)">
+                  <!-- grid rings -->
+                  <polygon points="0,-120 114.1,-37.1 70.5,97.1 -70.5,97.1 -114.1,-37.1" fill="none" stroke="#9bb8b4" stroke-width="1"/>
+                  <polygon points="0,-90 85.6,-27.8 52.9,72.8 -52.9,72.8 -85.6,-27.8" fill="none" stroke="#c5d7d4" stroke-width="1"/>
+                  <polygon points="0,-60 57.1,-18.5 35.3,48.5 -35.3,48.5 -57.1,-18.5" fill="none" stroke="#d7e4e2" stroke-width="1"/>
+                  <polygon points="0,-30 28.5,-9.3 17.6,24.3 -17.6,24.3 -28.5,-9.3" fill="none" stroke="#e4eeec" stroke-width="1"/>
+                  <!-- axes -->
+                  <line x1="0" y1="0" x2="0" y2="-120" stroke="#9bb8b4" stroke-width="1"/>
+                  <line x1="0" y1="0" x2="114.1" y2="-37.1" stroke="#9bb8b4" stroke-width="1"/>
+                  <line x1="0" y1="0" x2="70.5" y2="97.1" stroke="#9bb8b4" stroke-width="1"/>
+                  <line x1="0" y1="0" x2="-70.5" y2="97.1" stroke="#9bb8b4" stroke-width="1"/>
+                  <line x1="0" y1="0" x2="-114.1" y2="-37.1" stroke="#9bb8b4" stroke-width="1"/>
+                  <!-- data shape (illustrative profile) -->
+                  <polygon points="0,-102 96,-28 48,78 -58,70 -78,-25" fill="url(#radarFill)" stroke="#184f4c" stroke-width="2.5"/>
+                  <circle cx="0" cy="-102" r="4" fill="#184f4c"/>
+                  <circle cx="96" cy="-28" r="4" fill="#184f4c"/>
+                  <circle cx="48" cy="78" r="4" fill="#184f4c"/>
+                  <circle cx="-58" cy="70" r="4" fill="#184f4c"/>
+                  <circle cx="-78" cy="-25" r="4" fill="#184f4c"/>
+                  <!-- labels -->
+                  <text x="0" y="-138" text-anchor="middle" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">I_SCU</text>
+                  <text x="138" y="-34" text-anchor="start" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">H_ppc</text>
+                  <text x="86" y="118" text-anchor="middle" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">H_job</text>
+                  <text x="-86" y="118" text-anchor="middle" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">H_path</text>
+                  <text x="-138" y="-34" text-anchor="end" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">R_net</text>
+                </g>
+
+                <!-- right: compact metric bars -->
+                <g transform="translate(430,78)" font-family="IBM Plex Sans KR, sans-serif">
+                  <text x="0" y="0" font-size="15" font-weight="700" fill="#184f4c">Hₘ 구성 지표</text>
+                  <text x="0" y="22" font-size="11" fill="#5a7178">공공데이터 기반 정량 프로파일</text>
+
+                  <text x="0" y="58" font-size="12" fill="#314852">I_SCU</text>
+                  <rect x="70" y="46" width="170" height="12" rx="6" fill="#e4eeec"/>
+                  <rect x="70" y="46" width="142" height="12" rx="6" fill="url(#barGrad)"/>
+                  <text x="250" y="58" font-size="12" fill="#12252f" font-weight="600">0.84</text>
+
+                  <text x="0" y="90" font-size="12" fill="#314852">H_ppc</text>
+                  <rect x="70" y="78" width="170" height="12" rx="6" fill="#e4eeec"/>
+                  <rect x="70" y="78" width="118" height="12" rx="6" fill="url(#barGrad)"/>
+                  <text x="250" y="90" font-size="12" fill="#12252f" font-weight="600">0.69</text>
+
+                  <text x="0" y="122" font-size="12" fill="#314852">H_job</text>
+                  <rect x="70" y="110" width="170" height="12" rx="6" fill="#e4eeec"/>
+                  <rect x="70" y="110" width="96" height="12" rx="6" fill="url(#barGrad)"/>
+                  <text x="250" y="122" font-size="12" fill="#12252f" font-weight="600">0.56</text>
+
+                  <text x="0" y="154" font-size="12" fill="#314852">H_path</text>
+                  <rect x="70" y="142" width="170" height="12" rx="6" fill="#e4eeec"/>
+                  <rect x="70" y="142" width="128" height="12" rx="6" fill="url(#barGrad)"/>
+                  <text x="250" y="154" font-size="12" fill="#12252f" font-weight="600">0.75</text>
+
+                  <text x="0" y="186" font-size="12" fill="#314852">R_net</text>
+                  <rect x="70" y="174" width="170" height="12" rx="6" fill="#e4eeec"/>
+                  <rect x="70" y="174" width="78" height="12" rx="6" fill="url(#barGrad)"/>
+                  <text x="250" y="186" font-size="12" fill="#12252f" font-weight="600">0.46</text>
+
+                  <rect x="0" y="220" width="270" height="64" rx="12" fill="#184f4c"/>
+                  <text x="18" y="248" font-size="12" fill="#a8d0cb">종합 동질성</text>
+                  <text x="18" y="274" font-size="28" font-weight="700" fill="#ffffff">Hₘ ↑</text>
+                  <text x="120" y="274" font-size="13" fill="#d7e8e5">동질 집단 가능성</text>
+                </g>
+              </svg>
+              <figcaption class="infographic-caption">5개 축의 정량 지표가 높을수록 동질 집단에 가깝습니다</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -187,6 +265,6 @@
     <p>월담 · 공공데이터 기반 다차원 동질성 지수</p>
   </footer>
 
-  <script src="js/app.js?v=20260812i" type="module"></script>
+  <script src="js/app.js?v=20260812j" type="module"></script>
 </body>
 </html>
