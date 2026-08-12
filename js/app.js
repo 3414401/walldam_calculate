@@ -166,6 +166,7 @@ function filteredSchools() {
 function renderSchoolRank() {
   const content = $("#school-rank-content");
   const body = $("#school-rank-body");
+  const filters = content.querySelector(".filters");
   if (!schoolRankCity) {
     content.hidden = true;
     body.innerHTML = "";
@@ -174,6 +175,7 @@ function renderSchoolRank() {
 
   content.hidden = false;
   if (schoolRankCity === "daegu") {
+    filters.hidden = true;
     body.innerHTML = `
       <div class="empty-state">
         <p>대구광역시 학교별 동질성 순위는 추후 채워 넣을 예정입니다.</p>
@@ -181,6 +183,7 @@ function renderSchoolRank() {
     return;
   }
 
+  filters.hidden = false;
   initDistrictFilter();
   const rows = filteredSchools()
     .slice()
@@ -241,6 +244,7 @@ function initMetricPills() {
 function renderMetricRank() {
   const content = $("#metric-rank-content");
   const body = $("#metric-rank-body");
+  const pills = $("#metric-pills");
   if (!metricRankCity) {
     content.hidden = true;
     body.innerHTML = "";
@@ -249,6 +253,7 @@ function renderMetricRank() {
 
   content.hidden = false;
   if (metricRankCity === "daegu") {
+    pills.hidden = true;
     body.innerHTML = `
       <div class="empty-state">
         <p>대구광역시 지표별 순위는 추후 채워 넣을 예정입니다.</p>
@@ -256,6 +261,7 @@ function renderMetricRank() {
     return;
   }
 
+  pills.hidden = false;
   initMetricPills();
   const metric = METRICS.find((m) => m.key === activeMetric);
   const rows = schools
