@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260812l" />
+  <link rel="stylesheet" href="css/styles.css?v=20260812m" />
 </head>
 <body>
   <div class="bg-atmosphere" aria-hidden="true"></div>
@@ -19,7 +19,6 @@
     </div>
     <nav class="main-nav" aria-label="주요 메뉴">
       <button class="nav-btn is-active" data-section="about" type="button">프로젝트 · 지표 설명</button>
-      <button class="nav-btn" data-section="indicators" type="button">다차원 동질성 지표</button>
     </nav>
   </header>
 
@@ -212,45 +211,12 @@
         </div>
       </div>
     </section>
-
-    <!-- Section 2: Indicators by city -->
-    <section id="section-indicators" class="section" aria-labelledby="indicators-title" hidden>
-      <div class="section-intro">
-        <h1 id="indicators-title">다차원 동질성 지표</h1>
-        <p>지역을 선택하면 해당 광역시의 학교별 지표를 확인할 수 있습니다.</p>
-      </div>
-
-      <div class="city-buttons" role="group" aria-label="광역시 선택">
-        <button class="city-btn" data-city="daejeon" type="button">대전광역시</button>
-        <button class="city-btn" data-city="daegu" type="button">대구광역시</button>
-      </div>
-
-      <div id="city-panel" class="city-panel" hidden>
-        <div class="city-panel-header">
-          <h2 id="city-title"></h2>
-          <button class="explain-btn" id="explain-btn" type="button">지표 해설</button>
-        </div>
-
-        <div id="city-data" class="city-data"></div>
-      </div>
-
-      <!-- Explanation modal -->
-      <dialog id="explain-dialog" class="explain-dialog">
-        <form method="dialog" class="dialog-inner">
-          <header class="dialog-header">
-            <h2 id="explain-dialog-title">지표 해설</h2>
-            <button class="dialog-close" value="close" type="submit" aria-label="닫기">×</button>
-          </header>
-          <div class="dialog-body" id="explain-dialog-body"></div>
-        </form>
-      </dialog>
-    </section>
   </main>
 
   <footer class="site-footer">
     <p>월담 · 공공데이터 기반 다차원 동질성 지수</p>
   </footer>
 
-  <script src="js/app.js?v=20260812l" type="module"></script>
+  <script src="js/app.js?v=20260812m" type="module"></script>
 </body>
 </html>
