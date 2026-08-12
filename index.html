@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>월담 — 다차원 동질성 지표</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="bg-atmosphere" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">월담</span>
+      <span class="brand-sub">wall-jump</span>
+    </div>
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <button class="nav-btn is-active" data-section="about" type="button">프로젝트 · 지표 설명</button>
+      <button class="nav-btn" data-section="indicators" type="button">다차원 동질성 지표</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Section 1: About -->
+    <section id="section-about" class="section is-active" aria-labelledby="about-title">
+      <div class="hero-block">
+        <h1 id="about-title" class="hero-brand">월담</h1>
+        <p class="hero-lead">담을 넘어, 이질성이 극대화된 팀을 설계하다</p>
+        <p class="hero-desc">
+          ‘월담(wall-jump)’은 ‘담을 넘다’라는 의미로, 동질 집단 내의 교류만 강화되는
+          여러 교육 환경의 한계를 극복하기 위해 만들어졌습니다. 사회·문화·교육 공공데이터를
+          결합해 집단을 분석하고, AI 기반 다양성 매칭으로 최적의 팀을 설계합니다.
+        </p>
+      </div>
+
+      <div class="subtabs" role="tablist" aria-label="설명 하위 탭">
+        <button class="subtab is-active" role="tab" aria-selected="true" data-subtab="image" type="button">소개 이미지</button>
+        <button class="subtab" role="tab" aria-selected="false" data-subtab="school-rank" type="button">학교별 동질성 순위</button>
+        <button class="subtab" role="tab" aria-selected="false" data-subtab="metric-rank" type="button">지표별 순위</button>
+      </div>
+
+      <div class="subpanels">
+        <!-- Tab 1: Image placeholder -->
+        <div class="subpanel is-active" id="sub-image" role="tabpanel">
+          <div class="image-slot" id="about-image-slot">
+            <p class="placeholder-label">이미지를 여기에 넣을 예정입니다</p>
+          </div>
+          <article class="prose-card">
+            <h2>다차원 동질성 지수란?</h2>
+            <p>
+              지역사랑상품권 가맹점 업종별 결제정보(한국조폐공사) 등 공공데이터를 전처리·융합하여
+              교육 환경의 획일성 정도를 산출하는 월담 자체 지표
+              <strong>다차원 동질성 지수 (H<sub>m</sub>, Multidimensional Homogeneity)</strong>를 개발했습니다.
+            </p>
+            <p>
+              H<sub>m</sub>이 1에 가까울수록 집단 구성원(I<sub>SCU</sub>), 소비 방식(H<sub>ppc</sub>),
+              진로 노출(H<sub>job</sub>), 공부 목표(H<sub>path</sub>)가 비슷하여,
+              과밀되거나 고립된 극단적 동질 집단에 가까울 가능성이 높습니다.
+            </p>
+          </article>
+        </div>
+
+        <!-- Tab 2: School rankings -->
+        <div class="subpanel" id="sub-school-rank" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <h2>학교별 동질성 지표 순위</h2>
+            <p class="hint">H<sub>m</sub> 값 오름차순 (낮을수록 다양성 ↑ / 높을수록 동질성 ↑)</p>
+            <div class="filters">
+              <label>
+                학교급
+                <select id="filter-level">
+                  <option value="all">전체</option>
+                  <option value="초등학교">초등학교</option>
+                  <option value="중학교">중학교</option>
+                  <option value="고등학교">고등학교</option>
+                </select>
+              </label>
+              <label>
+                구
+                <select id="filter-district">
+                  <option value="all">전체</option>
+                </select>
+              </label>
+              <label class="search-label">
+                검색
+                <input type="search" id="school-search" placeholder="학교명" autocomplete="off" />
+              </label>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table" id="school-rank-table">
+              <thead>
+                <tr>
+                  <th>순위</th>
+                  <th>학교명</th>
+                  <th>학교급</th>
+                  <th>구</th>
+                  <th>H<sub>m</sub></th>
+                  <th>학생 수</th>
+                  <th>과밀</th>
+                  <th>고립</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 3: Per-metric rankings -->
+        <div class="subpanel" id="sub-metric-rank" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <h2>지표별 순위</h2>
+            <p class="hint">선택한 지표 값 오름차순</p>
+            <div class="metric-pills" id="metric-pills" role="group" aria-label="지표 선택"></div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table" id="metric-rank-table">
+              <thead>
+                <tr>
+                  <th>순위</th>
+                  <th>학교명</th>
+                  <th>학교급</th>
+                  <th>구</th>
+                  <th id="metric-col-header">지표</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Indicators by city -->
+    <section id="section-indicators" class="section" aria-labelledby="indicators-title" hidden>
+      <div class="section-intro">
+        <h1 id="indicators-title">다차원 동질성 지표</h1>
+        <p>지역을 선택하면 해당 광역시의 학교별 지표를 확인할 수 있습니다.</p>
+      </div>
+
+      <div class="city-buttons" role="group" aria-label="광역시 선택">
+        <button class="city-btn" data-city="daejeon" type="button">대전광역시</button>
+        <button class="city-btn" data-city="daegu" type="button">대구광역시</button>
+      </div>
+
+      <div id="city-panel" class="city-panel" hidden>
+        <div class="city-panel-header">
+          <h2 id="city-title"></h2>
+          <button class="explain-btn" id="explain-btn" type="button">지표 해설</button>
+        </div>
+
+        <div id="city-data" class="city-data"></div>
+      </div>
+
+      <!-- Explanation modal -->
+      <dialog id="explain-dialog" class="explain-dialog">
+        <form method="dialog" class="dialog-inner">
+          <header class="dialog-header">
+            <h2 id="explain-dialog-title">지표 해설</h2>
+            <button class="dialog-close" value="close" type="submit" aria-label="닫기">×</button>
+          </header>
+          <div class="dialog-body" id="explain-dialog-body"></div>
+        </form>
+      </dialog>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>월담 · 공공데이터 기반 다차원 동질성 지수</p>
+  </footer>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
