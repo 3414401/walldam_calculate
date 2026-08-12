@@ -177,6 +177,10 @@ main {
   font-weight: 700;
 }
 
+.text-blue {
+  color: #1d4ed8;
+}
+
 .subtabs {
   display: flex;
   flex-wrap: wrap;
