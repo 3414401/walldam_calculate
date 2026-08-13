@@ -80,6 +80,52 @@ body {
   mix-blend-mode: soft-light;
 }
 
+.top-sticky-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  background: rgba(12, 20, 38, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.top-sticky-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 0.55rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(
+    120deg,
+    rgba(255, 232, 150, 0.92) 0%,
+    rgba(180, 235, 240, 0.9) 52%,
+    rgba(168, 220, 190, 0.9) 100%
+  );
+  color: #12202c;
+  font-weight: 700;
+  font-size: clamp(0.86rem, 2.4vw, 0.98rem);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.top-sticky-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
+}
+
 .site-header {
   display: flex;
   align-items: center;
@@ -155,7 +201,7 @@ body {
 main {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 1.5rem 0 4rem;
+  padding: 4.25rem 0 4rem;
 }
 
 .section[hidden] {
