@@ -395,30 +395,74 @@ loadData().catch((err) => {
 });
 
 function setupContactForm() {
+  // 광고 문의용 Google Apps Script 웹앱 주소 (배포 URL을 받으면 여기에 붙여넣음)
+  const SHEETS_WEBAPP_URL = "";
+
   const form = $("#contact-form");
   if (!form) return;
   const note = $("#contact-form-note");
-  form.addEventListener("submit", (e) => {
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = new FormData(form);
+    const payload = {
+      timestamp: new Date().toISOString(),
+      org: data.get("org") || "",
+      name: data.get("name") || "",
+      email: data.get("email") || "",
+      phone: data.get("phone") || "",
+      type: data.get("type") || "",
+      scale: data.get("scale") || "",
+      schedule: data.get("schedule") || "",
+      message: data.get("message") || "",
+    };
+
     const lines = [
-      `회사·기관명: ${data.get("org") || ""}`,
-      `담당자명: ${data.get("name") || ""}`,
-      `이메일: ${data.get("email") || ""}`,
-      `연락처: ${data.get("phone") || ""}`,
-      `문의 유형: ${data.get("type") || ""}`,
-      `예상 규모·대상: ${data.get("scale") || ""}`,
-      `희망 일정: ${data.get("schedule") || ""}`,
+      `회사·기관명: ${payload.org}`,
+      `담당자명: ${payload.name}`,
+      `이메일: ${payload.email}`,
+      `연락처: ${payload.phone}`,
+      `문의 유형: ${payload.type}`,
+      `예상 규모·대상: ${payload.scale}`,
+      `희망 일정: ${payload.schedule}`,
       "",
       "문의 내용:",
-      `${data.get("message") || ""}`,
+      payload.message,
     ];
-    const subject = encodeURIComponent(`[월담 이용/광고 문의] ${data.get("type") || ""}`);
+    const subject = encodeURIComponent(`[월담 이용/광고 문의] ${payload.type}`);
     const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:walldam@example.com?subject=${subject}&body=${body}`;
+
+    const isAd = String(payload.type).includes("광고");
+
+    if (isAd && SHEETS_WEBAPP_URL) {
+      try {
+        await fetch(SHEETS_WEBAPP_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload),
+        });
+        if (note) {
+          note.hidden = false;
+          note.textContent = "광고 문의가 접수되었습니다. 구글시트에 저장되었습니다.";
+        }
+        form.reset();
+        return;
+      } catch (err) {
+        console.error(err);
+        if (note) {
+          note.hidden = false;
+          note.textContent = "시트 저장에 실패해 이메일로 전환합니다.";
+        }
+      }
+    }
+
+    window.location.href = `mailto:walldam2026@gmail.com?subject=${subject}&body=${body}`;
     if (note) {
       note.hidden = false;
-      note.textContent = "메일 앱이 열리면 내용을 확인하고 전송해 주세요.";
+      note.textContent = isAd && !SHEETS_WEBAPP_URL
+        ? "광고 문의용 시트 연결 전이므로, 메일로 보내 주세요. (연결 후 자동 저장됩니다)"
+        : "메일 앱이 열리면 내용을 확인하고 전송해 주세요.";
     }
   });
 }
