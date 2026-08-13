@@ -396,7 +396,7 @@ loadData().catch((err) => {
 
 function setupContactForm() {
   // 광고 문의용 Google Apps Script 웹앱 주소 (배포 URL을 받으면 여기에 붙여넣음)
-  const SHEETS_WEBAPP_URL = "";
+  const SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzIMXYP0BOtYdI4OC670ndUslXrAJ2x76lEI2eBpd9sqxvTZbnnK74ycXsuurCT23ykbw/exec";
 
   const form = $("#contact-form");
   if (!form) return;
