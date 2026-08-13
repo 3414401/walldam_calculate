@@ -244,9 +244,11 @@ main {
   gap: 0.85rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(160deg, #fff, rgba(79, 154, 146, 0.08));
+  background: linear-gradient(160deg, #ffffff 0%, #f3faf8 100%);
   color: var(--ink-soft);
   box-shadow: var(--shadow);
+  opacity: 1;
+  backdrop-filter: none;
   box-sizing: border-box;
   overflow: auto;
 }
