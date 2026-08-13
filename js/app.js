@@ -136,6 +136,12 @@ let activeMetric = "H_m";
 let schoolRankCity = null;
 let metricRankCity = null;
 let metricPillsReady = false;
+const metricExtraSheetCache = new Map();
+
+const METRIC_EXTRA_SHEETS = {
+  // 원본: https://docs.google.com/spreadsheets/d/1oJ25oUu2lvGvql6OVUhI0QM-dCJ9fG_zwtSamAhIEfM/edit
+  "daejeon:H_ppc": "data/daejeon-hppc.json",
+};
 
 function citySchools(city) {
   return dataByCity[city] || [];
@@ -160,6 +166,110 @@ function escapeHtml(str) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let inQuotes = false;
+  const src = String(text).replace(/^\uFEFF/, "");
+  for (let i = 0; i < src.length; i += 1) {
+    const ch = src[i];
+    const next = src[i + 1];
+    if (inQuotes) {
+      if (ch === '"' && next === '"') {
+        cell += '"';
+        i += 1;
+      } else if (ch === '"') {
+        inQuotes = false;
+      } else {
+        cell += ch;
+      }
+      continue;
+    }
+    if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ",") {
+      row.push(cell);
+      cell = "";
+    } else if (ch === "\n") {
+      row.push(cell);
+      rows.push(row);
+      row = [];
+      cell = "";
+    } else if (ch !== "\r") {
+      cell += ch;
+    }
+  }
+  if (cell.length || row.length) {
+    row.push(cell);
+    rows.push(row);
+  }
+  return rows
+    .map((r) => r.map((c) => String(c).replace(/\s+/g, " ").trim()))
+    .filter((r) => r.some((c) => c));
+}
+
+async function fetchSheetRows(url) {
+  if (metricExtraSheetCache.has(url)) return metricExtraSheetCache.get(url);
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`시트 로드 실패: ${res.status}`);
+  const ctype = res.headers.get("content-type") || "";
+  let rows;
+  if (ctype.includes("application/json") || url.endsWith(".json")) {
+    rows = await res.json();
+  } else {
+    rows = parseCsv(await res.text());
+  }
+  rows = (rows || [])
+    .map((r) => r.map((c) => String(c ?? "").replace(/\s+/g, " ").trim()))
+    .filter((r) => r.some((c) => c));
+  metricExtraSheetCache.set(url, rows);
+  return rows;
+}
+
+async function renderMetricExtraTable() {
+  const box = $("#metric-extra-table");
+  if (!box) return;
+  const key = `${metricRankCity}:${activeMetric}`;
+  const url = METRIC_EXTRA_SHEETS[key];
+  if (!url) {
+    box.hidden = true;
+    box.innerHTML = "";
+    return;
+  }
+  box.hidden = false;
+  box.innerHTML = `<p class="metric-extra-loading">표를 불러오는 중…</p>`;
+  try {
+    const rows = await fetchSheetRows(url);
+    if (!rows.length) {
+      box.innerHTML = `<p class="metric-extra-loading">표시할 표가 없습니다.</p>`;
+      return;
+    }
+    // 탭을 바꾸는 동안 응답이 늦게 오면 무시
+    if (`${metricRankCity}:${activeMetric}` !== key) return;
+    const [header, ...body] = rows;
+    const headerCells = header.map((h, i) => (h || (i === 0 ? "지역" : ""))).map((h) => `<th>${escapeHtml(h)}</th>`).join("");
+    const bodyRows = body
+      .map(
+        (r) => `<tr>${header
+          .map((_, i) => `<td${i === 1 ? ' class="num"' : ""}>${escapeHtml(r[i] || "")}</td>`)
+          .join("")}</tr>`
+      )
+      .join("");
+    box.innerHTML = `
+      <div class="table-wrap metric-extra-wrap">
+        <table class="data-table metric-extra-data">
+          <thead><tr>${headerCells}</tr></thead>
+          <tbody>${bodyRows}</tbody>
+        </table>
+      </div>`;
+  } catch (err) {
+    console.error(err);
+    if (`${metricRankCity}:${activeMetric}` !== key) return;
+    box.innerHTML = `<p class="metric-extra-loading">표를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</p>`;
+  }
 }
 
 async function loadData() {
@@ -296,6 +406,7 @@ function renderMetricRank() {
     content.hidden = true;
     body.innerHTML = "";
     renderMetricExplain();
+    renderMetricExtraTable();
     return;
   }
 
@@ -303,6 +414,7 @@ function renderMetricRank() {
   pills.hidden = false;
   initMetricPills();
   renderMetricExplain();
+  renderMetricExtraTable();
   const metric = METRICS.find((m) => m.key === activeMetric);
   const schools = citySchools(metricRankCity);
   const rows = schools
