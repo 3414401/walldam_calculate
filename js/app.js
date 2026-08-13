@@ -353,6 +353,13 @@ function setupSubtabs() {
         panel.classList.toggle("is-active", on);
         panel.hidden = !on;
       });
+      // 지표별 순위 탭: 대전광역시를 기본으로 바로 표시
+      if (id === "metric-rank") {
+        const daejeonBtn = document.querySelector(
+          '[data-rank-scope="metric"][data-rank-city="daejeon"]'
+        );
+        if (daejeonBtn) daejeonBtn.click();
+      }
     });
   });
 }
