@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260813x" />
+  <link rel="stylesheet" href="css/styles.css?v=20260813z" />
 </head>
 <body>
   <div class="bg-atmosphere" aria-hidden="true"></div>
@@ -39,7 +39,10 @@
       <div class="subtabs" role="tablist" aria-label="설명 하위 탭">
         <button class="subtab is-active" role="tab" aria-selected="true" data-subtab="image" type="button">소개 이미지</button>
         <button class="subtab" role="tab" aria-selected="false" data-subtab="school-rank" type="button">학교별 동질성 순위</button>
-        <button class="subtab" role="tab" aria-selected="false" data-subtab="metric-rank" type="button">지표별 순위</button>
+        <span class="bubble-anchor">
+          <span class="data-bubble">데이터 제공: 한국조폐공사</span>
+          <button class="subtab" role="tab" aria-selected="false" data-subtab="metric-rank" type="button">지표별 순위</button>
+        </span>
         <button class="subtab" role="tab" aria-selected="false" data-subtab="project" type="button">월담 프로젝트</button>
         <button class="subtab" role="tab" aria-selected="false" data-subtab="contact" type="button">이용 및 광고</button>
       </div>
@@ -312,6 +315,6 @@
     </p>
   </footer>
 
-  <script src="js/app.js?v=20260813y" type="module"></script>
+  <script src="js/app.js?v=20260813z" type="module"></script>
 </body>
 </html>
