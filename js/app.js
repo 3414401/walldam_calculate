@@ -368,19 +368,6 @@ function renderMetricRank() {
     </div>`;
 }
 
-function setupMainNav() {
-  $$(".nav-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.dataset.section;
-      $$(".nav-btn").forEach((b) => b.classList.toggle("is-active", b === btn));
-      $$(".section").forEach((sec) => {
-        const on = sec.id === `section-${id}`;
-        sec.classList.toggle("is-active", on);
-        sec.hidden = !on;
-      });
-    });
-  });
-}
 
 function setupSubtabs() {
   $$(".subtab").forEach((tab) => {
@@ -428,7 +415,6 @@ function setupRankCityButtons() {
 }
 
 
-setupMainNav();
 setupSubtabs();
 setupFilters();
 setupRankCityButtons();
