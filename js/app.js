@@ -419,9 +419,39 @@ setupSubtabs();
 setupFilters();
 setupRankCityButtons();
 setupHmSliders();
+setupContactForm();
 loadData().catch((err) => {
   console.error(err);
 });
+
+function setupContactForm() {
+  const form = $("#contact-form");
+  if (!form) return;
+  const note = $("#contact-form-note");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const lines = [
+      `회사·기관명: ${data.get("org") || ""}`,
+      `담당자명: ${data.get("name") || ""}`,
+      `이메일: ${data.get("email") || ""}`,
+      `연락처: ${data.get("phone") || ""}`,
+      `문의 유형: ${data.get("type") || ""}`,
+      `예상 규모·대상: ${data.get("scale") || ""}`,
+      `희망 일정: ${data.get("schedule") || ""}`,
+      "",
+      "문의 내용:",
+      `${data.get("message") || ""}`,
+    ];
+    const subject = encodeURIComponent(`[월담 이용/광고 문의] ${data.get("type") || ""}`);
+    const body = encodeURIComponent(lines.join("\n"));
+    window.location.href = `mailto:walldam@example.com?subject=${subject}&body=${body}`;
+    if (note) {
+      note.hidden = false;
+      note.textContent = "메일 앱이 열리면 내용을 확인하고 전송해 주세요.";
+    }
+  });
+}
 
 function setupHmSliders() {
   const wrap = $("#hm-sliders");
