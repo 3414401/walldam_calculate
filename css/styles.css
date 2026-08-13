@@ -209,8 +209,18 @@ main {
 }
 
 .hero-block {
-  padding: clamp(1.5rem, 4vw, 3rem) 0 1.25rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem) 0 1.25rem;
   animation: rise 0.8s ease both;
+}
+
+.hero-top-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .hero-brand {
