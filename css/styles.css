@@ -42,24 +42,42 @@ body {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-color: #05070f;
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(5, 8, 18, 0.42) 0%,
-      rgba(5, 8, 18, 0.28) 40%,
-      rgba(5, 8, 18, 0.55) 100%
-    ),
-    url("../images/site-bg.png?v=20260813v");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background:
+    radial-gradient(circle 48vw at 18% 32%, rgba(126, 220, 230, 0.72), rgba(126, 220, 230, 0.18) 38%, transparent 64%),
+    radial-gradient(circle 46vw at 82% 38%, rgba(255, 214, 40, 0.78), rgba(255, 196, 20, 0.22) 40%, transparent 66%),
+    radial-gradient(circle 42vw at 50% 110%, rgba(24, 79, 76, 0.35), transparent 60%),
+    linear-gradient(115deg, #0b132b 0%, #14233f 42%, #1a1a16 72%, #121820 100%);
 }
 
-.bg-atmosphere::before,
+.bg-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(circle at 18% 32%, rgba(170, 240, 245, 0.55) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 82% 38%, rgba(255, 225, 80, 0.55) 0 1px, transparent 1.6px);
+  background-size: 14px 14px, 14px 14px;
+  background-position: 0 0, 7px 7px;
+  -webkit-mask-image:
+    radial-gradient(circle 46vw at 18% 32%, #000 0%, transparent 70%),
+    radial-gradient(circle 44vw at 82% 38%, #000 0%, transparent 70%);
+  mask-image:
+    radial-gradient(circle 46vw at 18% 32%, #000 0%, transparent 70%),
+    radial-gradient(circle 44vw at 82% 38%, #000 0%, transparent 70%);
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+  pointer-events: none;
+}
+
 .bg-atmosphere::after {
-  content: none;
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.15' fill='%23ffffff' fill-opacity='0.35'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: soft-light;
 }
 
 .top-sticky-bar {
