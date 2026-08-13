@@ -141,6 +141,7 @@ const metricExtraSheetCache = new Map();
 const METRIC_EXTRA_SHEETS = {
   // 원본: https://docs.google.com/spreadsheets/d/1oJ25oUu2lvGvql6OVUhI0QM-dCJ9fG_zwtSamAhIEfM/edit
   "daejeon:H_ppc": "data/daejeon-hppc.json",
+  "daegu:H_ppc": "data/daegu-hppc.json",
 };
 
 function citySchools(city) {
