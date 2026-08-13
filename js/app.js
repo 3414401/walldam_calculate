@@ -259,6 +259,10 @@ async function renderMetricExtraTable() {
       )
       .join("");
     box.innerHTML = `
+      <p class="metric-extra-source">
+        <span>활용 공공데이터: 지역사랑상품권 가맹점 업종별 결제정보, 한국조폐공사 제공.</span>
+        <img src="images/research-support-1.png?v=20260813ab" alt="한국조폐공사" class="metric-extra-source-logo" />
+      </p>
       <div class="table-wrap metric-extra-wrap">
         <table class="data-table metric-extra-data">
           <thead><tr>${headerCells}</tr></thead>

@@ -662,6 +662,26 @@ main {
   display: none !important;
 }
 
+.metric-extra-source {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 0 0.65rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.metric-extra-source-logo {
+  display: block;
+  height: 1.7em;
+  width: auto;
+  max-height: 1.7em;
+  object-fit: contain;
+}
+
 .metric-extra-loading {
   margin: 0;
   padding: 0.75rem 0.9rem;
