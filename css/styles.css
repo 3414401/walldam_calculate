@@ -482,7 +482,8 @@ main {
   animation: none;
 }
 
-.project-promo-image {
+.project-promo-image,
+.intro-hero-image {
   display: block;
   width: 100%;
   height: auto;
