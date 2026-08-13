@@ -482,10 +482,12 @@ main {
   animation: none;
 }
 
-.project-promo-image {
+.project-promo-image,
+.intro-hero-image {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0 0 0.85rem;
   border: 0;
   border-radius: 0;
   background: transparent;
