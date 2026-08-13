@@ -469,24 +469,6 @@ main {
   color: var(--ink);
 }
 
-.project-proof-slot {
-  width: 100%;
-  padding: 1.15rem 1.25rem 1.25rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  background: var(--paper);
-  box-shadow: var(--shadow);
-}
-
-.project-proof-image {
-  display: block;
-  width: 100%;
-  max-height: min(70vh, 640px);
-  object-fit: contain;
-  border-radius: 12px;
-  background: #0f172a;
-}
-
 .prose-card {
   background: var(--paper);
   border: 1px solid var(--line);
