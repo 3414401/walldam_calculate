@@ -371,14 +371,19 @@ main {
   padding: 1.2rem 1.4rem;
   border: none;
   border-radius: 16px;
-  background: rgba(24, 79, 76, 0.28);
+  background: linear-gradient(
+    135deg,
+    rgba(24, 79, 76, 0.18) 0%,
+    rgba(47, 111, 106, 0.34) 45%,
+    rgba(61, 139, 132, 0.22) 100%
+  );
   color: var(--moss-deep);
   font-weight: 800;
   font-size: clamp(1.35rem, 3.4vw, 1.75rem);
   letter-spacing: -0.01em;
   text-decoration: none;
   box-shadow: none;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
   animation: none;
 }
@@ -390,7 +395,12 @@ main {
 
 .project-link-btn:hover {
   transform: translateY(-2px);
-  background: rgba(24, 79, 76, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(24, 79, 76, 0.28) 0%,
+    rgba(47, 111, 106, 0.48) 45%,
+    rgba(61, 139, 132, 0.34) 100%
+  );
   color: #0f3d3a;
   filter: none;
   box-shadow: none;
