@@ -393,25 +393,30 @@ main {
   align-self: center;
   width: min(100%, 480px);
   padding: 1.2rem 1.4rem;
-  border: none;
+  border: 1px solid rgba(91, 143, 201, 0.28);
   border-radius: 16px;
   background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(248, 250, 252, 0.95) 48%,
-    rgba(241, 245, 249, 0.92) 100%
+    125deg,
+    #fff8e8 0%,
+    #eef7ff 42%,
+    #e8f6ef 78%,
+    #fff4d8 100%
   );
+  background-size: 180% 180%;
   color: #111827;
   font-weight: 800;
   font-size: clamp(1.35rem, 3.4vw, 1.75rem);
   letter-spacing: -0.01em;
   text-decoration: none;
   box-shadow:
-    0 10px 28px rgba(8, 12, 24, 0.22),
-    0 1px 0 rgba(255, 255, 255, 0.9) inset;
-  backdrop-filter: none;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  animation: none;
+    0 10px 28px rgba(8, 12, 24, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.85) inset;
+  transition:
+    transform 0.2s ease,
+    background-position 0.35s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  animation: project-btn-shine 6s ease-in-out infinite;
 }
 
 .project-link-text {
@@ -422,18 +427,23 @@ main {
 
 .project-link-btn:hover {
   transform: translateY(-2px);
-  background: linear-gradient(
-    145deg,
-    #ffffff 0%,
-    #f8fafc 48%,
-    #eef2f7 100%
-  );
+  background-position: 100% 40%;
+  border-color: rgba(90, 154, 106, 0.4);
   color: #000000;
-  filter: none;
   box-shadow:
-    0 14px 34px rgba(8, 12, 24, 0.28),
-    0 1px 0 rgba(255, 255, 255, 1) inset;
+    0 14px 34px rgba(8, 12, 24, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.95) inset;
   animation: none;
+}
+
+@keyframes project-btn-shine {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .project-desc-slot {
@@ -475,14 +485,6 @@ main {
   object-fit: contain;
   border-radius: 12px;
   background: #0f172a;
-}
-
-.project-proof-caption {
-  margin: 0.9rem 0 0;
-  text-align: center;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--ink);
 }
 
 .prose-card {
