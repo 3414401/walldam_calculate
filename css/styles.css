@@ -654,6 +654,34 @@ main {
   opacity: 0.92;
 }
 
+.metric-extra-table {
+  margin: 0 0 1rem;
+}
+
+.metric-extra-table[hidden] {
+  display: none !important;
+}
+
+.metric-extra-loading {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.metric-extra-wrap {
+  max-height: none;
+}
+
+.metric-extra-data td {
+  white-space: normal;
+  vertical-align: top;
+  line-height: 1.45;
+}
+
 .dual-sheet {
   background: var(--paper);
   border: 1px solid var(--line);
