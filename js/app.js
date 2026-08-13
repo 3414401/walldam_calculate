@@ -262,10 +262,8 @@ function initMetricPills() {
   const wrap = $("#metric-pills");
   wrap.innerHTML = METRICS.map((m) => {
     const btn = `<button type="button" class="metric-pill${m.key === activeMetric ? " is-active" : ""}" data-metric="${m.key}">${m.label}</button>`;
-    if (m.key === "H_ppc") {
-      return `<span class="bubble-anchor">${`<span class="data-bubble">데이터 제공: 한국조폐공사</span>`}${btn}</span>`;
-    }
-    return btn;
+    if (m.key !== "H_ppc") return btn;
+    return `<span class="bubble-anchor"><span class="data-bubble">데이터 제공: 한국조폐공사</span>${btn}</span>`;
   }).join("");
   wrap.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-metric]");
