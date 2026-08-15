@@ -141,6 +141,7 @@ const metricExtraSheetCache = new Map();
 const METRIC_EXTRA_SHEETS = {
   // 원본: https://docs.google.com/spreadsheets/d/1oJ25oUu2lvGvql6OVUhI0QM-dCJ9fG_zwtSamAhIEfM/edit
   "daejeon:H_ppc": "data/daejeon-hppc.json",
+  // 원본: https://docs.google.com/spreadsheets/d/1GaQw0zezdgjXtpt-El1WMrTnRo2_muNB7BQt3cf0mIA/edit
   "daegu:H_ppc": "data/daegu-hppc.json",
 };
 
@@ -255,7 +256,10 @@ async function renderMetricExtraTable() {
     const bodyRows = body
       .map(
         (r) => `<tr>${header
-          .map((_, i) => `<td${i === 1 ? ' class="num"' : ""}>${escapeHtml(r[i] || "")}</td>`)
+          .map((_, i) => {
+            const isNum = i === 1 || i === header.length - 1;
+            return `<td${isNum ? ' class="num"' : ""}>${escapeHtml(r[i] || "")}</td>`;
+          })
           .join("")}</tr>`
       )
       .join("");
