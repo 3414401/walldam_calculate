@@ -482,6 +482,9 @@ function setupSubtabs() {
         );
         if (daejeonBtn) daejeonBtn.click();
       }
+      if (id === "image" && window.instgrm?.Embeds?.process) {
+        window.instgrm.Embeds.process();
+      }
     });
   });
 }
