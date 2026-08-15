@@ -425,6 +425,53 @@ main {
   overflow: hidden;
 }
 
+.instagram-feed {
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.15rem 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #ffffff 0%, #f3faf8 100%);
+  box-shadow: var(--shadow);
+}
+
+.instagram-feed-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.instagram-feed-head h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.instagram-feed-head a {
+  color: var(--moss-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.instagram-feed-head a:hover {
+  text-decoration: underline;
+}
+
+.instagram-embed-grid {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.instagram-embed-grid .instagram-media {
+  margin: 0 auto !important;
+  max-width: 540px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
 .hm-infographic {
   margin: 0;
   width: 100%;
