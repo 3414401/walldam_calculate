@@ -9,20 +9,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260815c" />
+  <link rel="stylesheet" href="css/styles.css?v=20260817a" />
 </head>
 <body>
   <div class="bg-atmosphere" aria-hidden="true"></div>
 
   <div class="top-sticky-bar">
-    <a
-      class="top-sticky-btn"
-      href="https://3414401.github.io/wall-dam/#/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      월담 프로젝트로 이동
-    </a>
+    <div class="top-sticky-actions">
+      <a
+        class="top-sticky-btn"
+        href="https://3414401.github.io/wall-dam/#/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        월담 프로젝트로 이동
+      </a>
+      <a
+        class="top-sticky-btn top-sticky-btn-video"
+        href="https://youtube.com/shorts/m3lFAs9quGQ?si=WzzdnS_dspiWgJLz"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        영상 보기(2분)
+      </a>
+    </div>
   </div>
 
   <main>
@@ -65,7 +75,7 @@
       </div>
 
       <div class="subtabs" role="tablist" aria-label="설명 하위 탭">
-        <button class="subtab is-active" role="tab" aria-selected="true" data-subtab="image" type="button">소개 이미지</button>
+        <button class="subtab is-active" role="tab" aria-selected="true" data-subtab="image" type="button">소개</button>
         <button class="subtab" role="tab" aria-selected="false" data-subtab="school-rank" type="button">학교별 동질성 순위</button>
         <span class="bubble-anchor">
           <span class="data-bubble">데이터 제공: 한국조폐공사</span>
@@ -167,6 +177,18 @@
             </figure>
           </div>
 
+          <section class="media-video-slot" aria-label="월담 소개 영상">
+            <div class="youtube-shorts-frame">
+              <iframe
+                src="https://www.youtube.com/embed/m3lFAs9quGQ"
+                title="월담 소개 영상"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </section>
+
           <section class="instagram-feed" aria-label="월담 인스타그램">
             <div class="instagram-feed-head">
               <h3>인스타그램</h3>
@@ -254,6 +276,17 @@
             >
               <span class="project-link-text">⭐월담 프로젝트로 이동🧱</span>
             </a>
+            <section class="media-video-slot" aria-label="월담 프로젝트 영상">
+              <div class="youtube-shorts-frame">
+                <iframe
+                  src="https://www.youtube.com/embed/m3lFAs9quGQ"
+                  title="월담 프로젝트 영상"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </section>
             <img
               class="project-promo-image"
               src="images/project-promo.png?v=20260813u"
