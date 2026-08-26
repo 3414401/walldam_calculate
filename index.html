@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260817a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260826a" />
 </head>
 <body>
   <div class="bg-atmosphere" aria-hidden="true"></div>
@@ -76,6 +76,7 @@
 
       <div class="subtabs" role="tablist" aria-label="설명 하위 탭">
         <button class="subtab is-active" role="tab" aria-selected="true" data-subtab="image" type="button">소개</button>
+        <button class="subtab" role="tab" aria-selected="false" data-subtab="cardnews" type="button">카드뉴스</button>
         <button class="subtab" role="tab" aria-selected="false" data-subtab="school-rank" type="button">학교별 동질성 순위</button>
         <span class="bubble-anchor">
           <span class="data-bubble">데이터 제공: 한국조폐공사</span>
@@ -208,6 +209,76 @@
               </blockquote>
             </div>
           </section>
+        </div>
+
+        <!-- Tab: Card news -->
+        <div class="subpanel" id="sub-cardnews" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <h2>월담 카드뉴스</h2>
+            <p class="hint">동질화 문제와 공공데이터, 월담이 시작된 이야기를 카드뉴스로 만나보세요.</p>
+          </div>
+          <div class="cardnews-episode-buttons" role="group" aria-label="카드뉴스 회차 선택">
+            <button class="city-btn is-active" type="button" data-cardnews-ep="1">1화 · 동질화와 월담의 시작</button>
+            <button class="city-btn" type="button" data-cardnews-ep="2">2화 · 공공데이터란?</button>
+          </div>
+
+          <article class="cardnews-episode is-active" id="cardnews-ep-1" data-cardnews-panel="1">
+            <h3>1화 · 동질화와 월담의 시작</h3>
+            <p class="cardnews-lead">같은 환경에만 머물면 관계는 편해지지만, 시야는 좁아질 수 있습니다. 월담은 그 담을 넘어보려 시작했습니다.</p>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/01.png?v=20260826a" alt="언제나 똑같은 친구들" />
+              <figcaption>언제나 똑같은 친구들 — 같은 동네, 비슷한 친구들과만 자라며 느끼는 답답함</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/02.png?v=20260826a" alt="매일 똑같은 친구들" />
+              <figcaption>매일 똑같은 친구들 — 익숙한 관계가 우리를 얼마나 ‘동질화’시키고 있을까요?</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/03.png?v=20260826a" alt="OECD 교우관계 지수 36위" />
+              <figcaption>OECD 국가 중 교우관계 지수 36위 — 관계 형성 능력이 낮은 이유로 ‘비슷한 환경’을 짚어봅니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/04.png?v=20260826a" alt="월담의 시작, 대학생들의 도전" />
+              <figcaption>월담의 시작 — 대학생들이 모여 웹사이트와 교육 환경을 바꾸기 위해 도전했습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/05.png?v=20260826a" alt="한국조폐공사 지원과 교사 피드백" />
+              <figcaption>공공데이터·연구 지원과 현장 선생님들의 피드백이 월담을 키웠습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/06.png?v=20260826a" alt="월담의 여정" />
+              <figcaption>월담은 AI와 공공데이터로 담을 넘는 교육환경을 만들고자 합니다.</figcaption>
+            </figure>
+          </article>
+
+          <article class="cardnews-episode" id="cardnews-ep-2" data-cardnews-panel="2" hidden>
+            <h3>2화 · 공공데이터란?</h3>
+            <p class="cardnews-lead">들어는 봤지만 막연했던 공공데이터. 일상 속 사례부터 활용법까지 쉽게 정리했습니다.</p>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/01.png?v=20260826a" alt="공공데이터? 들어는 봤는데" />
+              <figcaption>공공데이터? 들어는 봤는데… — 2화의 시작</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/02.png?v=20260826a" alt="공공 데이터가 뭐죠?" />
+              <figcaption>공공데이터는 국가·지자체·공공기관이 만든 정보이며, 국민 누구나 무료로 활용할 수 있습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/03.png?v=20260826a" alt="이것도 공공데이터였어" />
+              <figcaption>버스 도착, 날씨, 약국 재고처럼 이미 매일 쓰는 정보가 공공데이터입니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/04.png?v=20260826a" alt="일반 시민은 어디에 쓸 수 있나요" />
+              <figcaption>부동산·병원찾기·상권분석처럼 아이디어만 있다면 창업에도 활용할 수 있습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/05.png?v=20260826a" alt="어디서 다운받을 수 있나요" />
+              <figcaption>공공데이터포털(data.go.kr)에서 키워드만 검색하면 파일·API를 받을 수 있습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/06.png?v=20260826a" alt="공공데이터포털에서 한국조폐공사 검색" />
+              <figcaption>공공데이터포털에서 ‘한국조폐공사’를 검색해보세요. 다음 화에 계속됩니다.</figcaption>
+            </figure>
+          </article>
         </div>
 
         <!-- Tab 2: School rankings -->
@@ -400,7 +471,7 @@
     </p>
   </footer>
 
-  <script src="js/app.js?v=20260815b" type="module"></script>
+  <script src="js/app.js?v=20260826a" type="module"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
