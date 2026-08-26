@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>월담 — 다차원 동질성 지표</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885808538242261"
+     crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=20260826a" />
+</head>
+<body>
+  <div class="bg-atmosphere" aria-hidden="true"></div>
+
+  <div class="top-sticky-bar">
+    <div class="top-sticky-actions">
+      <a
+        class="top-sticky-btn"
+        href="https://3414401.github.io/wall-dam/#/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        월담 프로젝트로 이동
+      </a>
+      <a
+        class="top-sticky-btn top-sticky-btn-video"
+        href="https://youtube.com/shorts/m3lFAs9quGQ?si=WzzdnS_dspiWgJLz"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        영상 보기(2분)
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: About -->
+    <section id="section-about" class="section is-active" aria-labelledby="about-title">
+      <div class="hero-block">
+        <div class="hero-top-row">
+          <img
+            class="hero-top-image"
+            src="images/hero-top.png?v=20260813ae"
+            alt="월담 소개"
+          />
+          <aside class="hero-story-box" aria-label="월담 소개 글">
+            <p>우리의 배움은, 우리가 만나는 사람만큼 다양할까요?</p>
+            <p>
+              같은 학교, 같은 지역, 비슷한 교육환경.<br />
+              우리는 자연스럽게 비슷한 배경의 사람들과 관계를 맺습니다.
+            </p>
+            <p>
+              문제는 이러한 관계가 반복될수록<br />
+              나와 다른 환경에서 살아온 사람의 생각과 경험을 접할 기회가 줄어들 수 있다는 것입니다.
+            </p>
+            <p>
+              서로 다른 배경과 관점의 만남은<br />
+              익숙한 관계 안에서는 얻기 어려운 새로운 배움을 만들어냅니다.
+            </p>
+            <p>
+              그래서 월담은, 익숙한 관계의 담을 넘어<br />
+              우리가 만나는 사람의 범위를 넓혀보기로 했습니다.
+            </p>
+          </aside>
+        </div>
+        <h1 id="about-title" class="hero-brand">월담</h1>
+        <p class="hero-lead">담을 넘어, 이질성이 극대화된 팀을 설계하다</p>
+        <p class="hero-desc">
+          ‘월담(wall-jump)’은 ‘담을 넘다’라는 의미로, 동질 집단 내의 교류만 강화되는
+          여러 교육 환경의 한계를 극복하기 위해 만들어졌습니다.
+          <strong>사회·문화·교육 <span class="text-blue">공공데이터</span>를 결합해 <span class="text-blue">교육환경의 동질성</span>을 분석하고, <span class="text-blue">AI</span> 기반 다양성 매칭으로 최적의 팀을 설계합니다.</strong>
+        </p>
+      </div>
+
+      <div class="subtabs" role="tablist" aria-label="설명 하위 탭">
+        <button class="subtab is-active" role="tab" aria-selected="true" data-subtab="image" type="button">소개</button>
+        <button class="subtab" role="tab" aria-selected="false" data-subtab="cardnews" type="button">카드뉴스</button>
+        <button class="subtab" role="tab" aria-selected="false" data-subtab="school-rank" type="button">학교별 동질성 순위</button>
+        <span class="bubble-anchor">
+          <span class="data-bubble">데이터 제공: 한국조폐공사</span>
+          <button class="subtab" role="tab" aria-selected="false" data-subtab="metric-rank" type="button">지표별 순위</button>
+        </span>
+        <button class="subtab" role="tab" aria-selected="false" data-subtab="project" type="button">월담 프로젝트</button>
+        <button class="subtab" role="tab" aria-selected="false" data-subtab="contact" type="button">이용 및 광고</button>
+      </div>
+
+      <div class="subpanels">
+        <!-- Tab 1: Image placeholder -->
+        <div class="subpanel is-active" id="sub-image" role="tabpanel">
+          <div class="notice-slot">
+            <p>이 프로젝트는 <span class="text-blue">한국조폐공사</span> 외 기타 공공기관 공공데이터를 활용하여 만들어졌습니다.</p>
+          </div>
+          <img
+            class="intro-hero-image"
+            src="images/intro-hero.png?v=20260813x"
+            alt="월담 다차원 동질성 지수 소개"
+          />
+          <article class="prose-card">
+            <h2>다차원 동질성 지수란?</h2>
+            <p>
+              <span class="text-green"><strong>교육 환경의 획일성, 동질성</strong></span> 정도를 산출하는 월담 자체 개발 지표입니다.
+            </p>
+            <p>
+              지역사랑상품권 가맹점 업종별 결제정보(한국조폐공사) 등 공공데이터를 전처리·융합하여 만들어졌습니다.
+            </p>
+            <p>
+              H<sub>m</sub>이 1에 가까울수록 집단 구성원(I<sub>SCU</sub>), 소비 방식(H<sub>ppc</sub>),
+              진로 노출(H<sub>job</sub>), 공부 목표(H<sub>path</sub>)가 비슷하여,
+              과밀되거나 고립된 <span class="text-green"><strong>극단적 동질 집단</strong></span>에 가까울 가능성이 높습니다.
+            </p>
+          </article>
+          <div class="image-slot" id="about-image-slot">
+            <figure class="hm-infographic" aria-label="다차원 동질성 지수 구성 인포그래픽">
+              <div class="hm-infographic-layout">
+                <svg class="hm-radar" viewBox="0 0 420 420" role="img" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="radarFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#2f6f6a" stop-opacity="0.35"/>
+                      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.22"/>
+                    </linearGradient>
+                  </defs>
+                  <g transform="translate(210,210)">
+                    <polygon points="0,-120 114.1,-37.1 70.5,97.1 -70.5,97.1 -114.1,-37.1" fill="none" stroke="#9bb8b4" stroke-width="1"/>
+                    <polygon points="0,-90 85.6,-27.8 52.9,72.8 -52.9,72.8 -85.6,-27.8" fill="none" stroke="#c5d7d4" stroke-width="1"/>
+                    <polygon points="0,-60 57.1,-18.5 35.3,48.5 -35.3,48.5 -57.1,-18.5" fill="none" stroke="#d7e4e2" stroke-width="1"/>
+                    <polygon points="0,-30 28.5,-9.3 17.6,24.3 -17.6,24.3 -28.5,-9.3" fill="none" stroke="#e4eeec" stroke-width="1"/>
+                    <line x1="0" y1="0" x2="0" y2="-120" stroke="#9bb8b4" stroke-width="1"/>
+                    <line x1="0" y1="0" x2="114.1" y2="-37.1" stroke="#9bb8b4" stroke-width="1"/>
+                    <line x1="0" y1="0" x2="70.5" y2="97.1" stroke="#9bb8b4" stroke-width="1"/>
+                    <line x1="0" y1="0" x2="-70.5" y2="97.1" stroke="#9bb8b4" stroke-width="1"/>
+                    <line x1="0" y1="0" x2="-114.1" y2="-37.1" stroke="#9bb8b4" stroke-width="1"/>
+                    <polygon id="radar-shape" points="" fill="url(#radarFill)" stroke="#184f4c" stroke-width="2.5"/>
+                    <g id="radar-dots"></g>
+                    <text x="0" y="-138" text-anchor="middle" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">I_SCU</text>
+                    <text x="138" y="-34" text-anchor="start" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">H_ppc</text>
+                    <text x="86" y="118" text-anchor="middle" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">H_job</text>
+                    <text x="-86" y="118" text-anchor="middle" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">H_path</text>
+                    <text x="-138" y="-34" text-anchor="end" font-size="13" font-family="IBM Plex Sans KR, sans-serif" fill="#12252f" font-weight="600">R_net</text>
+                  </g>
+                </svg>
+
+                <div class="hm-sliders" id="hm-sliders">
+                  <div class="hm-sliders-title">Hₘ 구성 지표</div>
+                  <label class="hm-slider-row">
+                    <span class="hm-slider-label">I_SCU 사회·문화</span>
+                    <input type="range" min="0" max="100" value="84" data-metric="I_SCU" />
+                    <span class="hm-slider-value" data-value-for="I_SCU">0.84</span>
+                  </label>
+                  <label class="hm-slider-row">
+                    <span class="hm-slider-label">H_ppc 소비</span>
+                    <input type="range" min="0" max="100" value="69" data-metric="H_ppc" />
+                    <span class="hm-slider-value" data-value-for="H_ppc">0.69</span>
+                  </label>
+                  <label class="hm-slider-row">
+                    <span class="hm-slider-label">H_job 진로</span>
+                    <input type="range" min="0" max="100" value="56" data-metric="H_job" />
+                    <span class="hm-slider-value" data-value-for="H_job">0.56</span>
+                  </label>
+                  <label class="hm-slider-row">
+                    <span class="hm-slider-label">H_path 진학</span>
+                    <input type="range" min="0" max="100" value="75" data-metric="H_path" />
+                    <span class="hm-slider-value" data-value-for="H_path">0.75</span>
+                  </label>
+                  <label class="hm-slider-row">
+                    <span class="hm-slider-label">R_net 순전입</span>
+                    <input type="range" min="0" max="100" value="46" data-metric="R_net" />
+                    <span class="hm-slider-value" data-value-for="R_net">0.46</span>
+                  </label>
+                  <div class="hm-summary">
+                    <span>종합 동질성</span>
+                    <strong id="hm-summary-value">Hₘ 0.66</strong>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="infographic-caption">슬라이더로 각 축을 조절하면 5각형 프로파일이 함께 변합니다</figcaption>
+            </figure>
+          </div>
+
+          <section class="media-video-slot" aria-label="월담 소개 영상">
+            <div class="youtube-shorts-frame">
+              <iframe
+                src="https://www.youtube.com/embed/m3lFAs9quGQ"
+                title="월담 소개 영상"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </section>
+
+          <section class="instagram-feed" aria-label="월담 인스타그램">
+            <div class="instagram-feed-head">
+              <h3>인스타그램</h3>
+              <a
+                href="https://www.instagram.com/walljump26?igsh=MXV3ejFybWF0Z3llaA=="
+                target="_blank"
+                rel="noopener noreferrer"
+              >@walljump26 바로가기</a>
+            </div>
+            <div class="instagram-embed-grid">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/p/DcAS3ciEyLt/?utm_source=ig_embed&amp;utm_campaign=loading"
+                data-instgrm-version="14"
+              >
+                <a href="https://www.instagram.com/p/DcAS3ciEyLt/" target="_blank" rel="noopener noreferrer">인스타그램 게시물 보기</a>
+              </blockquote>
+            </div>
+          </section>
+        </div>
+
+        <!-- Tab: Card news -->
+        <div class="subpanel" id="sub-cardnews" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <h2>월담 카드뉴스</h2>
+            <p class="hint">동질화 문제와 공공데이터, 월담이 시작된 이야기를 카드뉴스로 만나보세요.</p>
+          </div>
+          <div class="cardnews-episode-buttons" role="group" aria-label="카드뉴스 회차 선택">
+            <button class="city-btn is-active" type="button" data-cardnews-ep="1">1화 · 동질화와 월담의 시작</button>
+            <button class="city-btn" type="button" data-cardnews-ep="2">2화 · 공공데이터란?</button>
+          </div>
+
+          <article class="cardnews-episode is-active" id="cardnews-ep-1" data-cardnews-panel="1">
+            <h3>1화 · 동질화와 월담의 시작</h3>
+            <p class="cardnews-lead">같은 환경에만 머물면 관계는 편해지지만, 시야는 좁아질 수 있습니다. 월담은 그 담을 넘어보려 시작했습니다.</p>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/01.png?v=20260826a" alt="언제나 똑같은 친구들" />
+              <figcaption>언제나 똑같은 친구들 — 같은 동네, 비슷한 친구들과만 자라며 느끼는 답답함</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/02.png?v=20260826a" alt="매일 똑같은 친구들" />
+              <figcaption>매일 똑같은 친구들 — 익숙한 관계가 우리를 얼마나 ‘동질화’시키고 있을까요?</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/03.png?v=20260826a" alt="OECD 교우관계 지수 36위" />
+              <figcaption>OECD 국가 중 교우관계 지수 36위 — 관계 형성 능력이 낮은 이유로 ‘비슷한 환경’을 짚어봅니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/04.png?v=20260826a" alt="월담의 시작, 대학생들의 도전" />
+              <figcaption>월담의 시작 — 대학생들이 모여 웹사이트와 교육 환경을 바꾸기 위해 도전했습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/05.png?v=20260826a" alt="한국조폐공사 지원과 교사 피드백" />
+              <figcaption>공공데이터·연구 지원과 현장 선생님들의 피드백이 월담을 키웠습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep1/06.png?v=20260826a" alt="월담의 여정" />
+              <figcaption>월담은 AI와 공공데이터로 담을 넘는 교육환경을 만들고자 합니다.</figcaption>
+            </figure>
+          </article>
+
+          <article class="cardnews-episode" id="cardnews-ep-2" data-cardnews-panel="2" hidden>
+            <h3>2화 · 공공데이터란?</h3>
+            <p class="cardnews-lead">들어는 봤지만 막연했던 공공데이터. 일상 속 사례부터 활용법까지 쉽게 정리했습니다.</p>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/01.png?v=20260826a" alt="공공데이터? 들어는 봤는데" />
+              <figcaption>공공데이터? 들어는 봤는데… — 2화의 시작</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/02.png?v=20260826a" alt="공공 데이터가 뭐죠?" />
+              <figcaption>공공데이터는 국가·지자체·공공기관이 만든 정보이며, 국민 누구나 무료로 활용할 수 있습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/03.png?v=20260826a" alt="이것도 공공데이터였어" />
+              <figcaption>버스 도착, 날씨, 약국 재고처럼 이미 매일 쓰는 정보가 공공데이터입니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/04.png?v=20260826a" alt="일반 시민은 어디에 쓸 수 있나요" />
+              <figcaption>부동산·병원찾기·상권분석처럼 아이디어만 있다면 창업에도 활용할 수 있습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/05.png?v=20260826a" alt="어디서 다운받을 수 있나요" />
+              <figcaption>공공데이터포털(data.go.kr)에서 키워드만 검색하면 파일·API를 받을 수 있습니다.</figcaption>
+            </figure>
+            <figure class="cardnews-card">
+              <img src="images/cardnews/ep2/06.png?v=20260826a" alt="공공데이터포털에서 한국조폐공사 검색" />
+              <figcaption>공공데이터포털에서 ‘한국조폐공사’를 검색해보세요. 다음 화에 계속됩니다.</figcaption>
+            </figure>
+          </article>
+        </div>
+
+        <!-- Tab 2: School rankings -->
+        <div class="subpanel" id="sub-school-rank" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <h2>학교별 동질성 지표 순위</h2>
+            <p class="hint">지역을 선택한 뒤 H<sub>m</sub> 상위 학교를 학생 수 기준으로 나란히 확인하세요.</p>
+          </div>
+          <div class="city-buttons" role="group" aria-label="학교별 순위 지역 선택">
+            <button class="city-btn" data-rank-city="daejeon" data-rank-scope="school" type="button">대전광역시</button>
+            <button class="city-btn" data-rank-city="daegu" data-rank-scope="school" type="button">대구광역시</button>
+          </div>
+          <div id="school-rank-content" class="rank-city-content" hidden>
+            <div class="filters">
+              <label>
+                학교급
+                <select id="filter-level">
+                  <option value="all">전체</option>
+                  <option value="초등학교">초등학교</option>
+                  <option value="중학교">중학교</option>
+                  <option value="고등학교">고등학교</option>
+                </select>
+              </label>
+              <label>
+                구
+                <select id="filter-district">
+                  <option value="all">전체</option>
+                </select>
+              </label>
+              <label class="search-label">
+                검색
+                <input type="search" id="school-search" placeholder="학교명" autocomplete="off" />
+              </label>
+            </div>
+            <div id="school-rank-body"></div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Per-metric rankings -->
+        <div class="subpanel" id="sub-metric-rank" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <h2>지표별 순위</h2>
+            <p class="hint">지역을 선택한 뒤, 지표 값 내림차순(높은 순)으로 확인하세요.</p>
+            <p class="hint-note">※ 2025년 기준 자료입니다.</p>
+          </div>
+          <div class="city-buttons" role="group" aria-label="지표별 순위 지역 선택">
+            <button class="city-btn" data-rank-city="daejeon" data-rank-scope="metric" type="button">대전광역시</button>
+            <button class="city-btn" data-rank-city="daegu" data-rank-scope="metric" type="button">대구광역시</button>
+          </div>
+          <div id="metric-rank-content" class="rank-city-content" hidden>
+            <div class="metric-pills" id="metric-pills" role="group" aria-label="지표 선택"></div>
+            <div class="metric-explain" id="metric-explain" aria-live="polite"></div>
+            <div id="metric-extra-table" class="metric-extra-table" hidden></div>
+            <div id="metric-rank-body"></div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Walldam project link -->
+        <div class="subpanel" id="sub-project" role="tabpanel" hidden>
+          <div class="project-tab">
+            <a
+              class="project-link-btn"
+              href="https://3414401.github.io/wall-dam/#/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="project-link-text">⭐월담 프로젝트로 이동🧱</span>
+            </a>
+            <section class="media-video-slot" aria-label="월담 프로젝트 영상">
+              <div class="youtube-shorts-frame">
+                <iframe
+                  src="https://www.youtube.com/embed/m3lFAs9quGQ"
+                  title="월담 프로젝트 영상"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </section>
+            <img
+              class="project-promo-image"
+              src="images/project-promo.png?v=20260813u"
+              alt="월담 프로젝트 소개"
+            />
+            <div class="project-desc-slot">
+              <p><strong>조짜기 힘든 교사 및 교수, 과정형 평가가 고민인 교사 주목</strong></p>
+              <p>
+                AI가 공공데이터, H<sub>m</sub> 지수, 학생들의 개별 응답을 참고하여
+                각 조별 학생들에게 맞춤형 학습 활동을 추천해드립니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Usage & advertising inquiry -->
+        <div class="subpanel" id="sub-contact" role="tabpanel" hidden>
+          <div class="contact-hero">
+            <h2>이용·광고 문의, 여기서 바로 시작하세요</h2>
+            <p>학교·기관 도입, 제휴, 광고 제안을 남겨주시면 맞춤 안내와 일정을 제안해 드립니다.</p>
+          </div>
+
+          <div class="contact-layout">
+            <aside class="contact-aside">
+              <div class="contact-info-card">
+                <span class="contact-label">Email</span>
+                <a href="mailto:walldam2026@gmail.com">walldam2026@gmail.com</a>
+              </div>
+              <div class="contact-info-card">
+                <span class="contact-label">프로젝트</span>
+                <a href="https://3414401.github.io/wall-dam/#/" target="_blank" rel="noopener noreferrer">월담 (wall-jump)</a>
+              </div>
+              <div class="contact-process">
+                <h3>이렇게 진행됩니다</h3>
+                <ol>
+                  <li>
+                    <strong>문의 접수</strong>
+                    <span>이용·광고 요청을 확인합니다</span>
+                  </li>
+                  <li>
+                    <strong>맞춤 제안</strong>
+                    <span>도입 방식·광고 형태·견적을 안내합니다</span>
+                  </li>
+                  <li>
+                    <strong>일정 확정</strong>
+                    <span>협의 후 적용·집행을 진행합니다</span>
+                  </li>
+                </ol>
+              </div>
+            </aside>
+
+            <form class="contact-form" id="contact-form">
+              <label>
+                회사·기관명
+                <input type="text" name="org" required placeholder="예: OO초등학교 / OO교육청" />
+              </label>
+              <label>
+                담당자명
+                <input type="text" name="name" required placeholder="홍길동" />
+              </label>
+              <div class="contact-form-row">
+                <label>
+                  이메일
+                  <input type="email" name="email" required placeholder="name@example.com" />
+                </label>
+                <label>
+                  연락처
+                  <input type="tel" name="phone" placeholder="010-0000-0000" />
+                </label>
+              </div>
+              <label>
+                문의 유형
+                <select name="type" required>
+                  <option value="">선택해주세요</option>
+                  <option value="이용 문의">이용 문의</option>
+                  <option value="학교·기관 도입">학교·기관 도입</option>
+                  <option value="광고·제휴">광고·제휴</option>
+                  <option value="기타">기타</option>
+                </select>
+              </label>
+              <label>
+                예상 규모·대상
+                <input type="text" name="scale" placeholder="예: 중학생 120명 / 교사 연수 30명" />
+              </label>
+              <label>
+                희망 일정
+                <input type="text" name="schedule" placeholder="예: 2026년 9월 중" />
+              </label>
+              <label>
+                문의 내용
+                <textarea name="message" rows="6" required placeholder="이용 목적, 광고 희망 위치, 예산 범위 등을 적어 주세요."></textarea>
+              </label>
+              <button class="contact-submit" type="submit">문의 보내기</button>
+              <p class="contact-form-note" id="contact-form-note" hidden></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-links">
+      <a href="privacy.html">개인정보 처리방침</a>
+    </p>
+    <p class="footer-support">
+      <span>연구 지원</span>
+      <span class="footer-support-sep" aria-hidden="true">|</span>
+      <img src="images/research-support-1.png?v=20260813r" alt="한국조폐공사" class="footer-support-logo" />
+      <img src="images/research-support-2.png?v=20260813r" alt="경북대학교" class="footer-support-logo" />
+    </p>
+  </footer>
+
+  <script src="js/app.js?v=20260826a" type="module"></script>
+  <script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
