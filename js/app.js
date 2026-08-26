@@ -489,6 +489,22 @@ function setupSubtabs() {
   });
 }
 
+function setupCardnews() {
+  const buttons = $$("[data-cardnews-ep]");
+  if (!buttons.length) return;
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const ep = btn.dataset.cardnewsEp;
+      buttons.forEach((b) => b.classList.toggle("is-active", b === btn));
+      $$("[data-cardnews-panel]").forEach((panel) => {
+        const on = panel.dataset.cardnewsPanel === ep;
+        panel.classList.toggle("is-active", on);
+        panel.hidden = !on;
+      });
+    });
+  });
+}
+
 function setupFilters() {
   ["filter-level", "filter-district", "school-search"].forEach((id) => {
     const el = $(`#${id}`);
@@ -518,6 +534,7 @@ function setupRankCityButtons() {
 
 
 setupSubtabs();
+setupCardnews();
 setupFilters();
 setupRankCityButtons();
 setupHmSliders();
